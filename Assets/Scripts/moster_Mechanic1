@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class monster : MonoBehaviour
+{
+
+    public Transform target; // A játékos pozíciója
+    private UnityEngine.AI.NavMeshAgent agent; // A NavMeshAgent komponens
+
+    void Start()
+    {
+        // Megszerezzük a NavMeshAgent komponenst
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+    }
+
+    void Update()
+    {
+        // Frissítjük a célpontot a játékos aktuális pozíciójára
+        if (Time.time % 1 >0.9 || Time.time % 1 < 0.1)
+        {
+            agent.SetDestination(target.position);
+        }
+        
+    }
+}
