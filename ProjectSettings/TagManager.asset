@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - Blur
+=======
+  - Destructible
+  - Undestructible
+>>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
   layers:
   - Default
   - TransparentFX
