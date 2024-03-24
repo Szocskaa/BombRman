@@ -818,6 +818,7 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 644f125c265a94be0896b72ec4c04e7d, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &105058894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,6 +1050,9 @@ PrefabInstance:
 =======
 --- !u!1 &113721707 stripped
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+--- !u!1 &113721707 stripped
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1464484887366625871, guid: 973e30aed52df874a8a9b583c4cf06d6, type: 3}
   m_PrefabInstance: {fileID: 474371558}
@@ -3371,6 +3375,7 @@ PrefabInstance:
       addedObject: {fileID: 736000474}
   m_SourcePrefab: {fileID: 100100000, guid: 973e30aed52df874a8a9b583c4cf06d6, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &408224081
 GameObject:
   m_ObjectHideFlags: 0
@@ -3472,6 +3477,8 @@ BoxCollider:
   m_Center: {x: 0.001989007, y: 0.82396805, z: -0.0080718845}
 =======
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
 --- !u!1 &434660194
 GameObject:
   m_ObjectHideFlags: 0
@@ -6107,6 +6114,7 @@ Transform:
   m_Father: {fileID: 1202187740}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &781696647
 GameObject:
   m_ObjectHideFlags: 0
@@ -6184,6 +6192,8 @@ CanvasRenderer:
   m_GameObject: {fileID: 781696647}
   m_CullTransparentMesh: 1
 =======
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
 --- !u!1001 &777382428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6267,7 +6277,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1573237118}
   m_SourcePrefab: {fileID: 100100000, guid: 973e30aed52df874a8a9b583c4cf06d6, type: 3}
+<<<<<<< HEAD
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
 --- !u!1001 &785058449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8443,6 +8456,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Size: {x: 1.8024528, y: 2.6479392, z: 1.9235487}
   m_Center: {x: 0.001989007, y: 0.82396805, z: -0.0080718845}
 --- !u!1 &1034533532
@@ -8478,6 +8492,8 @@ MonoBehaviour:
 --- !u!4 &1034533534
 Transform:
 =======
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &1025579709
@@ -8519,11 +8535,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!65 &1030590555
 BoxCollider:
+<<<<<<< HEAD
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_GameObject: {fileID: 1034533532}
   serializedVersion: 2
@@ -8604,6 +8624,8 @@ MonoBehaviour:
 --- !u!222 &1039568258
 CanvasRenderer:
 =======
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
   m_GameObject: {fileID: 1030590553}
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -8621,15 +8643,21 @@ CanvasRenderer:
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &1030590556
 Rigidbody:
+<<<<<<< HEAD
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_GameObject: {fileID: 1039568255}
   m_CullTransparentMesh: 1
 =======
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
   m_GameObject: {fileID: 1030590553}
   serializedVersion: 4
   m_Mass: 1
@@ -8734,7 +8762,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 866526187}
   m_SourcePrefab: {fileID: 100100000, guid: 973e30aed52df874a8a9b583c4cf06d6, type: 3}
+<<<<<<< HEAD
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
 --- !u!1 &1040758973
 GameObject:
   m_ObjectHideFlags: 0
@@ -9555,6 +9586,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1464484887366625871, guid: 973e30aed52df874a8a9b583c4cf06d6, type: 3}
       insertIndex: -1
 <<<<<<< HEAD
+<<<<<<< HEAD
       addedObject: {fileID: 64231418}
   m_SourcePrefab: {fileID: 100100000, guid: 973e30aed52df874a8a9b583c4cf06d6, type: 3}
 --- !u!1 &1127428101
@@ -9762,6 +9794,9 @@ PrefabInstance:
 =======
       addedObject: {fileID: 632713803}
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+      addedObject: {fileID: 632713803}
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
     - targetCorrespondingSourceObject: {fileID: 1464484887366625871, guid: 973e30aed52df874a8a9b583c4cf06d6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 632713804}
@@ -11515,6 +11550,7 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 644f125c265a94be0896b72ec4c04e7d, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1319172462
 GameObject:
   m_ObjectHideFlags: 0
@@ -11682,6 +11718,8 @@ BoxCollider:
   m_Center: {x: 0.001989007, y: 0.82396805, z: -0.0080718845}
 =======
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
 --- !u!4 &1331403451 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7248642375954117489, guid: 644f125c265a94be0896b72ec4c04e7d, type: 3}
@@ -11869,6 +11907,7 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 644f125c265a94be0896b72ec4c04e7d, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1349473174
 GameObject:
   m_ObjectHideFlags: 0
@@ -12011,6 +12050,9 @@ Transform:
 =======
 --- !u!1 &1346840818
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+--- !u!1 &1346840818
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12839,6 +12881,7 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 644f125c265a94be0896b72ec4c04e7d, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1468799214
 GameObject:
   m_ObjectHideFlags: 0
@@ -13006,6 +13049,8 @@ BoxCollider:
   m_Center: {x: 0.001989007, y: 0.82396805, z: -0.0080718845}
 =======
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
 --- !u!1 &1487153564
 GameObject:
   m_ObjectHideFlags: 0
@@ -14194,6 +14239,7 @@ Transform:
   m_Father: {fileID: 831941270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1595136237
 GameObject:
   m_ObjectHideFlags: 0
@@ -14311,6 +14357,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1907303464}
 =======
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
 --- !u!1001 &1600743400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14394,7 +14442,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1182527191}
   m_SourcePrefab: {fileID: 100100000, guid: 973e30aed52df874a8a9b583c4cf06d6, type: 3}
+<<<<<<< HEAD
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
 --- !u!1 &1609992091
 GameObject:
   m_ObjectHideFlags: 0
@@ -16557,10 +16608,14 @@ PrefabInstance:
     - target: {fileID: 2240881192534159605, guid: 973e30aed52df874a8a9b583c4cf06d6, type: 3}
       propertyPath: m_LocalScale.y
 <<<<<<< HEAD
+<<<<<<< HEAD
       value: 0.35
 =======
       value: 1
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+      value: 1
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
       objectReference: {fileID: 0}
     - target: {fileID: 2240881192534159605, guid: 973e30aed52df874a8a9b583c4cf06d6, type: 3}
       propertyPath: m_LocalScale.z
@@ -17147,6 +17202,7 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 644f125c265a94be0896b72ec4c04e7d, type: 3}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1898232584 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1464484887366625871, guid: 973e30aed52df874a8a9b583c4cf06d6, type: 3}
@@ -17310,6 +17366,8 @@ Animator:
   m_WriteDefaultValuesOnDisable: 0
 =======
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
 --- !u!1001 &1916046703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17617,9 +17675,12 @@ Transform:
   m_Father: {fileID: 831941270}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &1968371437
 GameObject:
 =======
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
 --- !u!1 &1977869046 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1464484887366625871, guid: 973e30aed52df874a8a9b583c4cf06d6, type: 3}
@@ -17632,11 +17693,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!65 &1977869048
 BoxCollider:
+<<<<<<< HEAD
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   serializedVersion: 6
   m_Component:
@@ -17716,6 +17781,8 @@ MonoBehaviour:
 --- !u!222 &1968371441
 CanvasRenderer:
 =======
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
   m_GameObject: {fileID: 1977869046}
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -17733,15 +17800,21 @@ CanvasRenderer:
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &1977869049
 Rigidbody:
+<<<<<<< HEAD
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_GameObject: {fileID: 1968371437}
   m_CullTransparentMesh: 1
 =======
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
   m_GameObject: {fileID: 1977869046}
   serializedVersion: 4
   m_Mass: 1
@@ -17904,7 +17977,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 178111444}
   m_SourcePrefab: {fileID: 100100000, guid: 973e30aed52df874a8a9b583c4cf06d6, type: 3}
+<<<<<<< HEAD
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
 --- !u!1001 &1989634389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17981,6 +18057,7 @@ PrefabInstance:
     - target: {fileID: 1818861082154570, guid: 5e45c8f884f6d124ea0499aae7fdbec8, type: 3}
       propertyPath: m_Name
       value: BombHead
+<<<<<<< HEAD
       objectReference: {fileID: 0}
     - target: {fileID: 4018009403884052, guid: 5e45c8f884f6d124ea0499aae7fdbec8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18253,6 +18330,8 @@ PrefabInstance:
     - target: {fileID: 4848890224265034, guid: 5e45c8f884f6d124ea0499aae7fdbec8, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.24970977
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
       objectReference: {fileID: 0}
     - target: {fileID: 4911057012121422, guid: 5e45c8f884f6d124ea0499aae7fdbec8, type: 3}
       propertyPath: m_LocalScale.x
@@ -19527,14 +19606,20 @@ SceneRoots:
   - {fileID: 176143465}
   - {fileID: 1202187740}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 1992170562}
   - {fileID: 208809082}
   - {fileID: 1595136241}
   - {fileID: 408224084}
   - {fileID: 1034533534}
 =======
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65
   - {fileID: 64652555}
   - {fileID: 1332877590}
   - {fileID: 1057404891}
   - {fileID: 283811943}
+<<<<<<< HEAD
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai)
+=======
+>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65

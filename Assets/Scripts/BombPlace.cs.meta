@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/BombPlace.cs.meta
 guid: a898fb00aceb5034c8fe61d2a32d23ee
+========
+guid: f927ed404d6fb904c9b87bea70a7a02d
+>>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65:Assets/Scripts/BombExplosion.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
