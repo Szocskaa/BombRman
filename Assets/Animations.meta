@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Animations.meta
 guid: 6fd8017222d71fc49884053fdd20d74e
 folderAsset: yes
+=======
+guid: 4be9d8c00f113554d981fe393fa4f483
+>>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai):Assets/Scenes/Game.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

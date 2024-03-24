@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/BombExplosion.cs.meta
+guid: f927ed404d6fb904c9b87bea70a7a02d
+========
+guid: a898fb00aceb5034c8fe61d2a32d23ee
+>>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65:Assets/Scripts/BombPlace.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
