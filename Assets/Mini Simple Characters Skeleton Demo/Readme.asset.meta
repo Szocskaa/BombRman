@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/AssetPacks.meta
 <<<<<<<< HEAD:Assets/AssetPacks.meta
 guid: a4442775e67dc6949ad172f49af24d4d
 ========
@@ -6,7 +7,12 @@ guid: ef7fc5541daec46bca80267c6c95c646
 >>>>>>>> 24ae84ac79329d4cc614eb71940fc631f5247e65:Assets/Explosion.meta
 folderAsset: yes
 DefaultImporter:
+=======
+guid: 447108942fa59f243b3e1f146cab91c2
+NativeFormatImporter:
+>>>>>>> parent of 3c0bffb (Pause Menu 1.0):Assets/Mini Simple Characters Skeleton Demo/Readme.asset.meta
   externalObjects: {}
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

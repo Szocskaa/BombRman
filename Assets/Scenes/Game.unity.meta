@@ -1,10 +1,14 @@
 fileFormatVersion: 2
 <<<<<<< HEAD:Assets/Animations.meta
+<<<<<<< HEAD:Assets/Animations.meta
 guid: 6fd8017222d71fc49884053fdd20d74e
 folderAsset: yes
 =======
 guid: 4be9d8c00f113554d981fe393fa4f483
 >>>>>>> 24ae84a (Bomba lerakása, annak felrobbanása és annak hatásai):Assets/Scenes/Game.unity.meta
+=======
+guid: 9fc0d4010bbf28b4594072e72b8655ab
+>>>>>>> parent of 3c0bffb (Pause Menu 1.0):Assets/Scenes/Game.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
