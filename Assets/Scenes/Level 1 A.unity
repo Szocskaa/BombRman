@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17746705, g: 0.2221771, b: 0.30439103, a: 1}
+  m_IndirectSpecularColor: {r: 0.17746687, g: 0.22217686, b: 0.30439076, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1310,10 +1310,6 @@ PrefabInstance:
     - target: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       propertyPath: m_Name
       value: Ghost
-      objectReference: {fileID: 0}
-    - target: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
-      propertyPath: m_TagString
-      value: Destructible
       objectReference: {fileID: 0}
     - target: {fileID: 240210537681501225, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6922,7 +6918,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.1
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 1b2cf6edc5cc4d648897e0b4a3890b4c, type: 2}
   m_BuildHeightMesh: 0
@@ -15524,7 +15520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8b5d716f5b3924a9c395f374aa6f8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageToFade: {fileID: 0}
+  imageToFade: {fileID: 1484521193}
 --- !u!114 &1484521193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18330,8 +18326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f927ed404d6fb904c9b87bea70a7a02d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bomb: {fileID: 1862016120}
-  explosionPrefab: {fileID: 1402405752}
+  bomb: {fileID: 0}
+  explosionPrefab: {fileID: 0}
   explosionDuration: 1
 --- !u!1 &1670698439 stripped
 GameObject:
@@ -22965,11 +22961,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a42ac5a1461514d9c4a8a694678017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 1, g: 1, b: 1, a: 1}
+  _color: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
   _editorFlipMode: 0
   _buildFlipMode: 0
-  _intensity: 0
-  _multiplier: 0.15
+  _intensity: 0.78
+  _multiplier: 0.259
   _onBeginBlur:
     m_PersistentCalls:
       m_Calls: []

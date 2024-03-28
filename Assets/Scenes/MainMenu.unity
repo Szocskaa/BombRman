@@ -2699,7 +2699,7 @@ MonoBehaviour:
   musicVol: {fileID: 2039839294}
   sfxVol: {fileID: 903120960}
   mainAudioMixer: {fileID: 24100000, guid: fb9f025d39f938847b4f4389393c2a12, type: 2}
-  muteToggle: {fileID: 2047793393}
+  muteToggle: {fileID: 0}
 --- !u!1 &832810616
 GameObject:
   m_ObjectHideFlags: 0
@@ -8232,8 +8232,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 798433239}
         m_TargetAssemblyTypeName: SettingsMenuManager, Assembly-CSharp
-        m_MethodName: Mute
-        m_Mode: 0
+        m_MethodName: MuteToggle
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

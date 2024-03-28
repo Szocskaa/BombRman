@@ -1,35 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class monster2 : MonoBehaviour
+public class Monster2 : MonoBehaviour
 {
-    public Transform target;
-    private UnityEngine.AI.NavMeshAgent agent;
-
-
-    public float terrainWidth = 100;
-    public float terrainLength = 100;
+    private NavMeshAgent agent;
 
     void Start()
     {
-
-        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
+        SetNewDestination();
     }
 
     void Update()
     {
-
-        if (agent.remainingDistance < 0.5f)
-            agent.SetDestination(GetRandomPoint());
+        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        {
+            SetNewDestination();
+            Debug.Log(agent.destination);
+        }
     }
 
-
-    Vector3 GetRandomPoint()
+    void SetNewDestination()
     {
-        float x = Random.Range(-terrainWidth / 2, terrainWidth / 2);
-        float z = Random.Range(-terrainLength / 2, terrainLength / 2);
+        Vector3 newDestination = GetRandomPointOnNavMesh();
+        agent.SetDestination(newDestination);
+    }
 
-        return new Vector3(x, 0, z);
+    Vector3 GetRandomPointOnNavMesh()
+    {
+        Vector3 randomDirection = Random.insideUnitSphere * 100; // 100 is the radius within which we are looking for a point
+        randomDirection += transform.position;
+        NavMeshHit hit;
+        NavMesh.SamplePosition(randomDirection, out hit, 100, 1);
+        return hit.position;
     }
 }

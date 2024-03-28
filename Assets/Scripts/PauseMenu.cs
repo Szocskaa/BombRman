@@ -53,6 +53,8 @@ public class PauseMenu : MonoBehaviour
     public void ExitToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+
     }
 
     public void Quit()
