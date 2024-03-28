@@ -15524,7 +15524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a8b5d716f5b3924a9c395f374aa6f8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imageToFade: {fileID: 0}
+  imageToFade: {fileID: 1484521193}
 --- !u!114 &1484521193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22931,7 +22931,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &2099781151
 Animator:
   serializedVersion: 5
@@ -22965,10 +22965,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a42ac5a1461514d9c4a8a694678017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 1, g: 1, b: 1, a: 1}
+  _color: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 1}
   _editorFlipMode: 0
   _buildFlipMode: 0
-  _intensity: 0
+  _intensity: 0.7
   _multiplier: 0.15
   _onBeginBlur:
     m_PersistentCalls:
