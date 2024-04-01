@@ -12,16 +12,15 @@ public class GhostScript : MonoBehaviour
     private static readonly int IdleState = Animator.StringToHash("Base Layer.idle");
     private static readonly int MoveState = Animator.StringToHash("Base Layer.move");
 
-    [SerializeField] private SkinnedMeshRenderer[] MeshR;
-    [SerializeField] private float Speed = 4;
-
+    [SerializeField] public SkinnedMeshRenderer[] MeshR;
+    [SerializeField] public float Speed = 4;
     void Start()
     {
         Anim = this.GetComponent<Animator>();
         Ctrl = this.GetComponent<CharacterController>();
     }
 
-    void Update()
+    public void Update()
     {
         GRAVITY();
         MOVE();
