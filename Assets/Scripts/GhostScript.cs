@@ -13,8 +13,7 @@ public class GhostScript : MonoBehaviour
     private static readonly int MoveState = Animator.StringToHash("Base Layer.move");
 
     [SerializeField] private SkinnedMeshRenderer[] MeshR;
-    [SerializeField] private float Speed = 4;
-
+    [SerializeField] public float Speed = 4;
     void Start()
     {
         Anim = this.GetComponent<Animator>();
