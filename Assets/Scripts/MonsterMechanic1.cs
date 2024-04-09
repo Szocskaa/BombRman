@@ -15,7 +15,7 @@ public class Monster : MonoBehaviour
 
     void Update()
     {
-        Vector3 goal = goalTransform.position; // Update the goal position
+        Vector3 goal = goalTransform.position;
 
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
