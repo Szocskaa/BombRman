@@ -4,6 +4,7 @@ public class BombExplosion : MonoBehaviour
 {
     public GameObject bomb;
     public GameObject explosionPrefab;
+    public GameObject playerWhoPlacedTheBomb;
     public float explosionDuration =  1.0f;
 
     private Vector3[] directions = new Vector3[]
@@ -14,13 +15,35 @@ public class BombExplosion : MonoBehaviour
         Vector3.left
     };
 
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == playerWhoPlacedTheBomb)
+        {
+            Physics.IgnoreCollision(other.GetComponent<Collider>(), bomb.GetComponent<Collider>(), false);
+        }
+    }
+
     public void Explode()
     {
         Vector3 explosionPosition = bomb.transform.position;
 
         GameObject bigExplosion = Instantiate(explosionPrefab, explosionPosition, Quaternion.identity);
         Destroy(bigExplosion, explosionDuration);
-        float radius = 3.0f;
+        float radius = 1.0f;
+        float nullRadius = 1.0f;
+
+        Collider[] initialHits = Physics.OverlapSphere(explosionPosition, nullRadius);
+        foreach (Collider hitCollider in initialHits)
+        {
+            if (hitCollider.CompareTag("PlayerObject"))
+            {
+                Destroy(hitCollider.gameObject);
+            }
+            else if (hitCollider.CompareTag("Enemy"))
+            {
+                Destroy(hitCollider.gameObject);
+            }
+        }
 
         foreach (Vector3 dir in directions)
         {
@@ -37,6 +60,14 @@ public class BombExplosion : MonoBehaviour
                         break;
                     }
                     else if (hit.collider.CompareTag("Destructible"))
+                    {
+                        Destroy(hit.collider.gameObject);
+                    }
+                    else if (hit.collider.CompareTag("PlayerObject"))
+                    {
+                        Destroy(hit.collider.gameObject);
+                    }
+                    else if (hit.collider.CompareTag("Enemy"))
                     {
                         Destroy(hit.collider.gameObject);
                     }
