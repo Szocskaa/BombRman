@@ -11,8 +11,6 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
-    public GameObject GameOverUI;
-
     UIBlur uiBlurScrpit; 
 
     // Start is called before the first frame update
