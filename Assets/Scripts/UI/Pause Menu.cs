@@ -33,7 +33,6 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        CheckPlayerExistence();
 
     }
 
@@ -63,19 +62,6 @@ public class PauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
-
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    void CheckPlayerExistence()
-    {
-        GameObject playerObject = GameObject.FindWithTag("PlayerObject");
-        if (playerObject == null)
-        {
-            GameOverUI.SetActive(true);
-        }
-    }
+ 
 
 }
