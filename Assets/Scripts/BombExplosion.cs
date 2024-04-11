@@ -30,7 +30,7 @@ public class BombExplosion : MonoBehaviour
         GameObject bigExplosion = Instantiate(explosionPrefab, explosionPosition, Quaternion.identity);
         Destroy(bigExplosion, explosionDuration);
         float radius = 1.0f;
-        float nullRadius = 1.0f;
+        float nullRadius = 0f;
 
         Collider[] initialHits = Physics.OverlapSphere(explosionPosition, nullRadius);
         foreach (Collider hitCollider in initialHits)

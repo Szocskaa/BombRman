@@ -11,8 +11,6 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
-    public GameObject GameOverUI;
-
     UIBlur uiBlurScrpit; 
 
     // Start is called before the first frame update
@@ -35,7 +33,6 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        CheckPlayerExistence();
 
     }
 
@@ -65,19 +62,6 @@ public class PauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
-
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    void CheckPlayerExistence()
-    {
-        GameObject playerObject = GameObject.FindWithTag("PlayerObject");
-        if (playerObject == null)
-        {
-            GameOverUI.SetActive(true);
-        }
-    }
+ 
 
 }
