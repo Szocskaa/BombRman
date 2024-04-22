@@ -14,44 +14,61 @@ public class LevelSelector : MonoBehaviour
     public Sprite[] levelBackgrounds;
 
     private int currentLevelIndex = 0;
+    private string selectedLevel;
 
     void Start()
     {
         UpdateLevelDisplay();
     }
+    
 
     public void ChangeLevel(int change)
     {
-        currentLevelIndex += change;
+        // Új index számítása
+        int newLevelIndex = currentLevelIndex + change;
 
-        if (currentLevelIndex >= levelBackgrounds.Length)
+        // Az érvényes index ellenõrzése
+        if (newLevelIndex >= 0 && newLevelIndex < levelBackgrounds.Length)
         {
-            currentLevelIndex = levelBackgrounds.Length - 1;
-            rightButton.interactable = false;
-        }
-        else if (currentLevelIndex < 0)
-        {
-            currentLevelIndex = 0;
-            leftButton.interactable = false;
+            currentLevelIndex = newLevelIndex;  // Ha érvényes, módosítsa az indexet
+            UpdateLevelDisplay();  // Frissíti a kijelzõt
+
+            Debug.Log($"Current level selected: {levelNames[currentLevelIndex]}");  // Debug log
         }
         else
         {
-            leftButton.interactable = true;
-            rightButton.interactable = true;
+            Debug.LogWarning("Invalid level index, skipping update.");  // Figyelmeztetõ üzenet
         }
-
-        UpdateLevelDisplay();
     }
+
+
 
     public void StartLevel()
     {
         SceneManager.LoadScene(levelNames[currentLevelIndex]);
     }
 
+    public void GoToJoin()
+    {
+        SetCurrentLevelInPlayerConfig();
+    }
+
+    public void SetCurrentLevelInPlayerConfig()
+    {
+        if (PlayerConfigurationManager.Instance != null)
+        {
+            PlayerConfigurationManager.Instance.SetSelectedLevel(levelNames[currentLevelIndex]);
+            
+        }
+    }
+
     private void UpdateLevelDisplay()
     {
         titleText.text = levelNames[currentLevelIndex];
         backgroundImage.sprite = levelBackgrounds[currentLevelIndex];
+
+        // Debug.Log hívás minden alkalommal, amikor a kijelzõ frissül
+        Debug.Log($"Display updated to level: {levelNames[currentLevelIndex]}");
     }
 
     public void OnRightButtonPressed()
