@@ -3706,7 +3706,12 @@ MonoBehaviour:
   entity: {fileID: 282431374}
   explosionPrefab: {fileID: 1402405752}
   bombCooldown: 2
+  nextBombTime: 0
   bombCount: 1
+  currentBombCount: 0
+  isInTestMode: 0
+  bombs: []
+  detonator: 0
 --- !u!65 &282431384
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15770,6 +15775,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigExplosion
       objectReference: {fileID: 0}
+    - target: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+      propertyPath: m_TagString
+      value: Explosion
+      objectReference: {fileID: 0}
     - target: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
@@ -20032,6 +20041,10 @@ PrefabInstance:
     - target: {fileID: 2595720090088871617, guid: 732e12a252da64507987819a344450d8, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2595720090088871617, guid: 732e12a252da64507987819a344450d8, type: 3}
+      propertyPath: m_TagString
+      value: Bomb
       objectReference: {fileID: 0}
     - target: {fileID: 5830794085472444084, guid: 732e12a252da64507987819a344450d8, type: 3}
       propertyPath: m_LocalScale.x
