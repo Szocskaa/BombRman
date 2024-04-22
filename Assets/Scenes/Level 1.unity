@@ -11964,6 +11964,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 1402405752}
   playerWhoPlacedTheBomb: {fileID: 820847135}
   explosionDuration: 1
+  isInTestMode: 0
 --- !u!1001 &830211873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25929,6 +25930,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 1402405752}
   playerWhoPlacedTheBomb: {fileID: 1659007981}
   explosionDuration: 1
+  isInTestMode: 0
 --- !u!1001 &1664133239
 PrefabInstance:
   m_ObjectHideFlags: 0
