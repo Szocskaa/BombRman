@@ -6,9 +6,10 @@ public class monster_placebomb : MonoBehaviour
 {
     public GameObject bombPrefab;
     public GameObject entity;
-    public Transform movingObject; // The moving object
+    public GameObject explosionPrefab;
+    public Transform movingObject;
     public float bombCooldown = 3f;
-    public float triggerRadius = 2f; // The radius within which the bomb is placed
+    public float triggerRadius = 2f;
     private float nextBombTime = 0f;
 
     void Update()
@@ -24,10 +25,24 @@ public class monster_placebomb : MonoBehaviour
     {
         if (bombPrefab != null)
         {
-            GameObject bomb = Instantiate(bombPrefab, entity.transform.position, Quaternion.identity);
-            bomb.AddComponent<BombExplosion>();
-            bomb.GetComponent<BombExplosion>().Invoke("Explode", 2f);
+
+            Vector3 originalPosition = entity.transform.position;
+
+            Vector3 roundedPosition = new Vector3(
+                Mathf.RoundToInt(originalPosition.x),
+                originalPosition.y,
+                Mathf.RoundToInt(originalPosition.z)
+            );
+
+
+            GameObject bomb = Instantiate(bombPrefab, roundedPosition, Quaternion.identity);
+            BombExplosion bombExplosion = bomb.AddComponent<BombExplosion>();
+            bombExplosion.bomb = bomb;
+            bombExplosion.explosionPrefab = explosionPrefab;
+            bombExplosion.Invoke("Explode", 2f);
+            bombExplosion.playerWhoPlacedTheBomb = entity;
             Destroy(bomb, 2f);
+            Physics.IgnoreCollision(bomb.GetComponent<Collider>(), entity.GetComponent<Collider>());
         }
     }
 }

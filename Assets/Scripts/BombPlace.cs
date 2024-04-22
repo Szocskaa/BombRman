@@ -6,10 +6,11 @@ public class BombPlace : MonoBehaviour
 {
     public GameObject bombPrefab;
     public GameObject entity;
+    public GameObject explosionPrefab;
     public float bombCooldown = 3f;
     private float nextBombTime = 0f;
-    public int bombCount = 1; // Number of bombs that can be placed
-    private int currentBombCount; // Current number of bombs
+    public int bombCount = 1;
+    private int currentBombCount;
 
     private List<GameObject> bombs = new List<GameObject>();
     private bool detonator = false;
@@ -31,8 +32,9 @@ public class BombPlace : MonoBehaviour
             {
                 PlaceBombDetonator();
             }
-            else{
-            PlaceBomb();
+            else 
+            {
+                PlaceBomb();
             }
             nextBombTime = Time.time + bombCooldown;
             currentBombCount--;
@@ -54,10 +56,24 @@ public class BombPlace : MonoBehaviour
     {
         if (bombPrefab != null)
         {
-            GameObject bomb = Instantiate(bombPrefab, entity.transform.position, Quaternion.identity);
-            bomb.AddComponent<BombExplosion>();
-            bomb.GetComponent<BombExplosion>().Invoke("Explode", 2f);
+
+            Vector3 originalPosition = entity.transform.position;
+
+            Vector3 roundedPosition = new Vector3(
+                Mathf.RoundToInt(originalPosition.x),
+                originalPosition.y,
+                Mathf.RoundToInt(originalPosition.z)
+            );
+            
+
+            GameObject bomb = Instantiate(bombPrefab, roundedPosition, Quaternion.identity);
+            BombExplosion bombExplosion = bomb.AddComponent<BombExplosion>();
+            bombExplosion.bomb = bomb;
+            bombExplosion.explosionPrefab = explosionPrefab;
+            bombExplosion.Invoke("Explode", 2f);
+            bombExplosion.playerWhoPlacedTheBomb = entity;
             Destroy(bomb, 2f);
+            Physics.IgnoreCollision(bomb.GetComponent<Collider>(), entity.GetComponent<Collider>());
         }
     }
     void PlaceBombDetonator()
@@ -65,7 +81,7 @@ public class BombPlace : MonoBehaviour
         if (bombPrefab != null)
         {
             GameObject bomb = Instantiate(bombPrefab, entity.transform.position, Quaternion.identity);
-            bombs.Add(bomb); // Add the bomb to the list
+            bombs.Add(bomb);
         }
     }
 
@@ -79,6 +95,6 @@ public class BombPlace : MonoBehaviour
                 Destroy(bomb);
             }
         }
-        bombs.Clear(); // Clear the list after all bombs have exploded
+        bombs.Clear();
     }
 }
