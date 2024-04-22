@@ -1,47 +1,33 @@
 using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.TestTools;
+using UnityEngine.AI;
 using GameLogic;
 
-public class MonsterPlaceBombTests
+public class Monster2Tests
 {
-    private monster_placebomb monsterPlaceBomb;
-    private GameObject entity;
-    private GameObject bombPrefab;
-    private GameObject explosionPrefab;
-    private Transform movingObject;
+    private Monster2 monster2;
+    private NavMeshAgent agent;
 
     [SetUp]
     public void SetUp()
     {
-        // Get the existing GameObjects
-        entity = new GameObject("TestEntity");
-       
-        bombPrefab = GameObject.Find("Bomb");
-        explosionPrefab = GameObject.Find("BigExplosion");
-        movingObject = GameObject.Find("Ghost").transform;
-
-        // Add the monster_placebomb component to the entity
-        monsterPlaceBomb = entity.AddComponent<monster_placebomb>();
-        
-        // Assign the necessary GameObjects
-        monsterPlaceBomb.bombPrefab = bombPrefab;
-        monsterPlaceBomb.explosionPrefab = explosionPrefab;
-        monsterPlaceBomb.movingObject = movingObject;
-        
+        // Create a new GameObject and add the Monster2 and NavMeshAgent components
+        GameObject gameObject = new GameObject();
+        agent = gameObject.AddComponent<NavMeshAgent>();
+        monster2 = gameObject.AddComponent<Monster2>();
     }
 
-    [Test]
-    public void PlaceBomb_CreatesBombAtEntityPosition()
-    {
-        // Arrange
-        entity.transform.position = new Vector3(1, 1, 1);
+   
 
+    [Test]
+    public void GetRandomPointOnNavMesh_ReturnsPointOnNavMesh()
+    {
         // Act
-        monsterPlaceBomb.PlaceBomb();
+        Vector3 point = monster2.GetRandomPointOnNavMesh();
 
         // Assert
-        Assert.AreEqual(1, GameObject.FindObjectsOfType<BombExplosion>().Length);
-        Assert.AreEqual(entity.transform.position, GameObject.FindObjectOfType<BombExplosion>().transform.position);
+        NavMeshHit hit;
+        bool pointIsOnNavMesh = NavMesh.SamplePosition(point, out hit, 100, 1);
+        Assert.IsTrue(pointIsOnNavMesh);
     }
 }

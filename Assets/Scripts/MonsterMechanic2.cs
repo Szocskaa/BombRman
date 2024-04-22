@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+namespace GameLogic
+{
 public class Monster2 : MonoBehaviour
 {
     private NavMeshAgent agent;
@@ -22,13 +24,13 @@ public class Monster2 : MonoBehaviour
         }
     }
 
-    void SetNewDestination()
+    public void SetNewDestination()
     {
         Vector3 newDestination = GetRandomPointOnNavMesh();
         agent.SetDestination(newDestination);
     }
 
-    Vector3 GetRandomPointOnNavMesh()
+    public Vector3 GetRandomPointOnNavMesh()
     {
         Vector3 randomDirection = Random.insideUnitSphere * 100; // 100 is the radius within which we are looking for a point
         randomDirection += transform.position;
@@ -36,4 +38,4 @@ public class Monster2 : MonoBehaviour
         NavMesh.SamplePosition(randomDirection, out hit, 100, 1);
         return hit.position;
     }
-}
+}}
