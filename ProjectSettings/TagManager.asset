@@ -7,6 +7,10 @@ TagManager:
   - Undestructible
   - Destructible
   - Blur
+  - PlayerObject
+  - Enemy
+  - Bomb
+  - Explosion
   layers:
   - Default
   - TransparentFX
