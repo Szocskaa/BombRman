@@ -11,12 +11,12 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
-    UIBlur uiBlurScrpit; 
+    //public UIBlur uiBlurScrpit; 
 
     // Start is called before the first frame update
     void Start()
     {
-        uiBlurScrpit = GameObject.FindGameObjectWithTag("Blur").GetComponent<UIBlur>();
+        //uiBlurScrpit = GameObject.FindGameObjectWithTag("Blur").GetComponent<UIBlur>();
     }
 
     // Update is called once per frame
@@ -48,7 +48,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
-        uiBlurScrpit.BeginBlur(4f);
+        //uiBlurScrpit.BeginBlur(4f);
     }
 
     public void ExitToMainMenu()
