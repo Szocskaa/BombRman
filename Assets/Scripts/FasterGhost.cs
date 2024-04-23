@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace GameLogic{
 public class FasterGhost : MonoBehaviour
 {
     private GhostScript ghostScript;
@@ -28,4 +29,4 @@ public class FasterGhost : MonoBehaviour
             ghostScript.Speed = newSpeed;
         }
     }
-}
+}}

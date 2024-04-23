@@ -48,7 +48,6 @@ public class BombExplosionTests
     public void TestBombExplosionCreatesExplosionEffect()
     {
         bombExplosion.Explode();
-
         GameObject[] explosions = GameObject.FindGameObjectsWithTag("Explosion");
         Assert.IsTrue(explosions.Length > 0, "An explosion effect should be created upon explosion.");
     }

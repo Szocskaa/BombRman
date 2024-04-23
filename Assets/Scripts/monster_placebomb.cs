@@ -23,7 +23,7 @@ namespace GameLogic
             }
         }
 
-        void PlaceBomb()
+        public void PlaceBomb()
         {
             if (bombPrefab != null)
             {
