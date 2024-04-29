@@ -61,7 +61,23 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: defd1bd5-d303-408e-8798-2e3b830671b2
+    m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/DualShock4GamepadHID/leftStick,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID/dpad/left,/DualShock4GamepadHID/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6c4608a6-f17c-45eb-b995-1b3bd535b6d8
+    m_ActionName: Player/PlaceBomb[/Keyboard/leftShift,/DualShock4GamepadHID/buttonSouth,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a4a2568c-2b47-4183-a80c-bdde88a77fc4
+    m_ActionName: Player/Select[/Keyboard/leftShift,/Keyboard/rightShift,/DualShock4GamepadHID/buttonSouth,/Keyboard/enter,/Keyboard/shift,/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0a96ded9-8dd8-4092-98cb-021e59058d25
+    m_ActionName: Player/Cancel[/DualShock4GamepadHID/buttonEast,/Keyboard/escape,/DualShock4GamepadHID/start,/DualShock4GamepadHID/select]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
