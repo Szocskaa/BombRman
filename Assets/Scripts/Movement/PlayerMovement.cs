@@ -6,7 +6,7 @@ using GameLogic;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float playerSpeed = 4.0f;  // Speed setting
+    [SerializeField] public float playerSpeed = 4.0f;  // Speed setting
     private float gravity = -9.81f;  // Gravity setting
     [SerializeField] private Animator animator;  // Animator reference
     [SerializeField] private GameObject bombPrefab;  // Prefab for the bombs
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private int currentBombCount;  // Current available bombs
     private float nextBombTime = 0f;  // Next allowed bomb time
     private List<GameObject> bombs = new List<GameObject>();  // List of placed bombs
-    private bool detonator = false;  // Detonator mode
+    public bool detonator = false;  // Detonator mode
 
     private static readonly int IdleState = Animator.StringToHash("Base Layer.idle");
     private static readonly int MoveState = Animator.StringToHash("Base Layer.move");
