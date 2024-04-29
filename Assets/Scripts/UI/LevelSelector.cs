@@ -48,10 +48,6 @@ public class LevelSelector : MonoBehaviour
         SceneManager.LoadScene(levelNames[currentLevelIndex]);
     }
 
-    public void GoToJoin()
-    {
-        SetCurrentLevelInPlayerConfig();
-    }
 
     public void SetCurrentLevelInPlayerConfig()
     {

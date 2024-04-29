@@ -2,6 +2,9 @@
 using UnityEngine;
 using UnityEngine.TestTools;
 using GameLogic;
+using System;
+using System.Collections.Generic;
+using System.Collections;
 
 [TestFixture]
 public class BombExplosionTests
@@ -17,12 +20,16 @@ public class BombExplosionTests
     [SetUp]
     public void SetUp()
     {
-        // BombExplosion komponens teszteléséhez szükséges GameObject-ek
         bomb = new GameObject("Bomb");
+        bomb.transform.position = new Vector3(1, 0, 0);
+        bomb.AddComponent<SphereCollider>();
+        bomb.AddComponent<Rigidbody>();
         bombExplosion = bomb.AddComponent<BombExplosion>();
         bombExplosion.isInTestMode = true;
+
         explosionPrefab = new GameObject("ExplosionPrefab");
         playerWhoPlacedTheBomb = new GameObject("Player");
+        playerWhoPlacedTheBomb.transform.position = new Vector3(0, 0, 0);
 
         bombExplosion.bomb = bomb;
         bombExplosion.explosionPrefab = explosionPrefab;
@@ -32,7 +39,6 @@ public class BombExplosionTests
     [TearDown]
     public void TearDown()
     {
-        // Töröljük az összes teszt GameObject-et
         GameObject.DestroyImmediate(bomb);
         GameObject.DestroyImmediate(explosionPrefab);
         GameObject.DestroyImmediate(playerWhoPlacedTheBomb);
@@ -42,51 +48,63 @@ public class BombExplosionTests
     public void TestBombExplosionCreatesExplosionEffect()
     {
         bombExplosion.Explode();
-
-        // Ellenőrizzük, hogy az explózió létrehozza-e az explóziós effektet
         GameObject[] explosions = GameObject.FindGameObjectsWithTag("Explosion");
         Assert.IsTrue(explosions.Length > 0, "An explosion effect should be created upon explosion.");
     }
 
-    [Test]
-    public void TestBombExplosionDestroysDestructible()
+    [UnityTest]
+    public IEnumerator TestBombExplosionDestroysDestructible()
     {
-        // Hozzunk létre egy pusztítható objektumot
-        destructible = new GameObject("Destructible");
+        destructible = new GameObject("TestDestructible");
+        destructible.transform.position = new Vector3(0, 0, 0);
+        destructible.AddComponent<BoxCollider>();
+        destructible.AddComponent<Rigidbody>();
         destructible.tag = "Destructible";
 
-        // Robbantsuk fel a bombát
         bombExplosion.Explode();
 
-        // Ellenőrizzük, hogy a Destructible objektum el lett-e pusztítva
-        Assert.IsTrue(destructible == null, "The destructible object should be destroyed by the explosion.");
+        yield return null;
+
+        GameObject[] remainingDestructibles = GameObject.FindGameObjectsWithTag("Destructible");
+
+        bool isDestroyed = true;
+        foreach (GameObject obj in remainingDestructibles)
+        {
+            if (obj.name == "TestDestructible")
+            {
+                isDestroyed = false;
+                break;
+            }
+        }
+
+        Assert.IsTrue(isDestroyed, "The destructible object should be destroyed by the explosion.");
     }
 
     [Test]
     public void TestBombExplosionDoesNotAffectUndestructible()
     {
-        // Hozzunk létre egy elpusztíthatatlan objektumot
         undestructible = new GameObject("Undestructible");
         undestructible.tag = "Undestructible";
 
-        // Robbantsuk fel a bombát
         bombExplosion.Explode();
 
-        // Ellenőrizzük, hogy az Undestructible objektum nem lett-e pusztítva
         Assert.IsNotNull(undestructible, "The undestructible object should not be destroyed by the explosion.");
     }
 
-    [Test]
-    public void TestBombExplosionDestroysEnemy()
+    [UnityTest]
+    public IEnumerator TestBombExplosionDestroysEnemy()
     {
-        // Hozzunk létre egy ellenséget
-        enemy = new GameObject("Enemy");
+        enemy = new GameObject("TestEnemy");
         enemy.tag = "Enemy";
+        enemy.transform.position = new Vector3(0, 0, 0);
+        enemy.AddComponent<BoxCollider>();
 
-        // Robbantsuk fel a bombát
         bombExplosion.Explode();
 
-        // Ellenőrizzük, hogy az ellenség el lett-e pusztítva
-        Assert.IsTrue(enemy == null, "The enemy object should be destroyed by the explosion.");
+        yield return null;
+
+        GameObject foundEnemy = GameObject.Find("TestEnemy");
+
+        Assert.IsNull(foundEnemy, "The enemy object should be destroyed by the explosion.");
     }
 }

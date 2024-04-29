@@ -41,6 +41,7 @@ namespace GameLogic
             {
                 DestroyImmediate(bigExplosion);
             }
+
             float radius = 1.0f;
             float nullRadius = 0f;
 
