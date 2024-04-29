@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class GameOver : MonoBehaviour
 {
 
@@ -15,8 +14,7 @@ public class GameOver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckPlayerExistence();
-
+        Invoke("CheckPlayerExistence", 1);
     }
 
     public void Restart()

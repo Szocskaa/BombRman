@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using GameLogic;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -76,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
             bombExplosion.bomb = bomb;
             bombExplosion.explosionPrefab = explosionPrefab;
             bombExplosion.Invoke("Explode", 2f);  // Set timer for explosion
-            bombExplosion.playerWhoPlacedTheBomb = gameObject;
+            bombExplosion.playerWhoPlacedTheBomb = gameObject;  
             Destroy(bomb, 2f);
             Physics.IgnoreCollision(bomb.GetComponent<Collider>(), gameObject.GetComponent<Collider>());
         }

@@ -60,7 +60,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""id"": ""0a96ded9-8dd8-4092-98cb-021e59058d25"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)"",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -83,17 +83,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""ControllerStick"",
-                    ""action"": ""PlaceBomb"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""10bce805-728c-439e-8fd3-dd484aa6a565"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""ControllerDPad"",
                     ""action"": ""PlaceBomb"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -165,17 +154,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""303a4c0d-6a08-4083-b827-15d0b739e73e"",
-                    ""path"": ""<Gamepad>/dpad"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""ControllerDPad"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""Arrows"",
                     ""id"": ""37160c4d-fcad-4de2-86e9-3511a7fd0538"",
                     ""path"": ""2DVector"",
@@ -187,67 +165,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""up"",
-                    ""id"": ""7eb147e3-3675-4a43-9bf1-b43116338244"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardArrows"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""b4553327-9776-4db8-a6de-737a33ada561"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardArrows"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""f86b3774-266c-4f12-ad0a-17f7ae280846"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardArrows"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""b47a7816-f29f-46f3-a809-6007201365ec"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardArrows"",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""be775719-5ac3-4383-a0ef-a085bce73f1a"",
-                    ""path"": ""<Keyboard>/rightShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardArrows"",
-                    ""action"": ""PlaceBomb"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": """",
                     ""id"": ""221fba2b-78a4-4245-8a73-072ae7892c15"",
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardWASD;KeyboardArrows"",
+                    ""groups"": ""KeyboardWASD"",
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -258,7 +181,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/rightShift"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardWASD;KeyboardArrows"",
+                    ""groups"": ""KeyboardWASD"",
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -269,7 +192,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""ControllerStick;ControllerDPad"",
+                    ""groups"": ""ControllerStick"",
+                    ""action"": ""Select"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""233883ea-2630-496c-924e-3cb1699c868a"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardWASD"",
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -280,7 +214,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""ControllerStick;ControllerDPad"",
+                    ""groups"": ""ControllerStick"",
                     ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -288,10 +222,32 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""44732f78-436f-4492-9f58-1fdeb24b6f39"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardWASD"",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f2ee317-c03d-4a0f-8e24-5ff8f051125b"",
+                    ""path"": ""<Gamepad>/{Back}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""ControllerStick"",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""78d90ad9-8077-426a-9bc3-d09ee8d958b4"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""ControllerStick"",
                     ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -317,28 +273,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""devices"": [
                 {
                     ""devicePath"": ""<Gamepad>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""ControllerDPad"",
-            ""bindingGroup"": ""ControllerDPad"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Gamepad>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
-        },
-        {
-            ""name"": ""KeyboardArrows"",
-            ""bindingGroup"": ""KeyboardArrows"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Keyboard>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -495,24 +429,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (m_ControllerStickSchemeIndex == -1) m_ControllerStickSchemeIndex = asset.FindControlSchemeIndex("ControllerStick");
             return asset.controlSchemes[m_ControllerStickSchemeIndex];
-        }
-    }
-    private int m_ControllerDPadSchemeIndex = -1;
-    public InputControlScheme ControllerDPadScheme
-    {
-        get
-        {
-            if (m_ControllerDPadSchemeIndex == -1) m_ControllerDPadSchemeIndex = asset.FindControlSchemeIndex("ControllerDPad");
-            return asset.controlSchemes[m_ControllerDPadSchemeIndex];
-        }
-    }
-    private int m_KeyboardArrowsSchemeIndex = -1;
-    public InputControlScheme KeyboardArrowsScheme
-    {
-        get
-        {
-            if (m_KeyboardArrowsSchemeIndex == -1) m_KeyboardArrowsSchemeIndex = asset.FindControlSchemeIndex("KeyboardArrows");
-            return asset.controlSchemes[m_KeyboardArrowsSchemeIndex];
         }
     }
     public interface IPlayerActions
