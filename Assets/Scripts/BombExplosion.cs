@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using GameLogic;
 
 namespace GameLogic
 {
@@ -8,7 +8,8 @@ namespace GameLogic
         public GameObject bomb;
         public GameObject explosionPrefab;
         public GameObject playerWhoPlacedTheBomb;
-        public float explosionDuration = 1.0f;
+        public float explosionDuration = 10.0f;
+        public float radius = 1.0f;
 
         public bool isInTestMode = false;
 
@@ -42,7 +43,7 @@ namespace GameLogic
                 DestroyImmediate(bigExplosion);
             }
 
-            float radius = 1.0f;
+            
             float nullRadius = 0f;
 
             Collider[] initialHits = Physics.OverlapSphere(explosionPosition, nullRadius);

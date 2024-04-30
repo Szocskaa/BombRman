@@ -43,9 +43,20 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        // Idõarányosság visszaállítása
         Time.timeScale = 1f;
+
+        // Megkeressük és megsemmisítjük a PlayerConfigurationManager példányt
+        var playerConfigManager = FindObjectOfType<PlayerConfigurationManager>();
+        if (playerConfigManager != null)
+        {
+            Destroy(playerConfigManager.gameObject);
+        }
+
+        // Betöltjük a fõmenü jelenetet
+        SceneManager.LoadScene("MainMenu");
     }
+
 
     public void Quit()
     {
