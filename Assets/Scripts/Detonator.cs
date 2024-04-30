@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GameLogic
 {
-    public class NewBehaviourScript : MonoBehaviour
+    public class Detonator : MonoBehaviour
     {
         public PlayerMovement playerMovement; // Reference to the PlayerMovement script
 
