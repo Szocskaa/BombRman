@@ -6,24 +6,25 @@ using GameLogic;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float playerSpeed = 4.0f;  // Speed setting
+    [SerializeField] public float playerSpeed = 4.0f;  // Speed setting
     private float gravity = -9.81f;  // Gravity setting
     [SerializeField] private Animator animator;  // Animator reference
     [SerializeField] private GameObject bombPrefab;  // Prefab for the bombs
-    [SerializeField] private GameObject explosionPrefab;  // Prefab for explosions
-    [SerializeField] private float bombCooldown = 1f;  // Bomb cooldown time
+    [SerializeField] public GameObject explosionPrefab;  // Prefab for explosions
+    [SerializeField] public float bombCooldown = 1f;  // Bomb cooldown time
+   
 
     private CharacterController controller;  // CharacterController reference
     private Vector3 playerVelocity = Vector3.zero;  // Player's velocity
     private Vector2 movementInput = Vector2.zero;  // 2D input for movement
     private bool groundedPlayer;  // Check if player is grounded
 
-    private int bombCount = 1;  // Maximum bombs that can be placed
-    private int currentBombCount;  // Current available bombs
+    public int bombCount = 1;  // Maximum bombs that can be placed
+    public int currentBombCount;  // Current available bombs
     private float nextBombTime = 0f;  // Next allowed bomb time
     private List<GameObject> bombs = new List<GameObject>();  // List of placed bombs
-    private bool detonator = false;  // Detonator mode
-
+    public bool detonator = false;  // Detonator mode
+    public float radius_plus = 0f;
     private static readonly int IdleState = Animator.StringToHash("Base Layer.idle");
     private static readonly int MoveState = Animator.StringToHash("Base Layer.move");
 
@@ -74,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
             );
             GameObject bomb = Instantiate(bombPrefab, position, Quaternion.identity);
             BombExplosion bombExplosion = bomb.AddComponent<BombExplosion>();
+            bombExplosion.radius += radius_plus;
             bombExplosion.bomb = bomb;
             bombExplosion.explosionPrefab = explosionPrefab;
             bombExplosion.Invoke("Explode", 2f);  // Set timer for explosion

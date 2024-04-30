@@ -5,12 +5,12 @@ using UnityEngine;
 namespace GameLogic{
 public class FasterGhost : MonoBehaviour
 {
-    private GhostScript ghostScript;
+    private PlayerMovement playerMovement;
     private bool speedChanged = false;
 
     void Start()
     {
-        ghostScript = GetComponent<GhostScript>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     void Update()
@@ -24,9 +24,9 @@ public class FasterGhost : MonoBehaviour
 
     public void ChangeGhostSpeed(float newSpeed)
     {
-        if (ghostScript != null)
+        if (playerMovement != null)
         {
-            ghostScript.Speed = newSpeed;
+            playerMovement.playerSpeed = newSpeed;
         }
     }
 }}
