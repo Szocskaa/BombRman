@@ -11985,6 +11985,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 1402405752}
   playerWhoPlacedTheBomb: {fileID: 820847135}
   explosionDuration: 1
+  radius: 1
   isInTestMode: 0
 --- !u!1001 &830211873
 PrefabInstance:
@@ -18751,7 +18752,10 @@ MonoBehaviour:
   bombPrefab: {fileID: 1862016120}
   explosionPrefab: {fileID: 1402405752}
   bombCooldown: 1
+  bombCount: 1
+  currentBombCount: 0
   detonator: 0
+  radius_plus: 0
 --- !u!4 &1228650047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 796652407307068396, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
@@ -18793,6 +18797,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc599a05f98f1fe4ea6cd540be66b9bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 1228650044}
+--- !u!114 &1228650054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228650037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a06ebd533fcd0242995aff1311f7bdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 1228650044}
+--- !u!114 &1228650056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228650037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27201a25da0e4e24eb6fc8b604c70912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 1228650044}
@@ -26389,6 +26419,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 1402405752}
   playerWhoPlacedTheBomb: {fileID: 1659007981}
   explosionDuration: 1
+  radius: 1
   isInTestMode: 0
 --- !u!1001 &1664133239
 PrefabInstance:
@@ -27654,7 +27685,13 @@ PrefabInstance:
       addedObject: {fileID: 1228650049}
     - targetCorrespondingSourceObject: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1228650054}
+    - targetCorrespondingSourceObject: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1228650053}
+    - targetCorrespondingSourceObject: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1228650056}
     - targetCorrespondingSourceObject: {fileID: 1893022538616854154, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1261693788}
