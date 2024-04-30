@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 857714300179aeb4eaa9bf832951b313
   - enabled: 1
-    path: Assets/Scenes/Level 1 ARON.unity
+    path: Assets/Scenes/Level 1.unity
     guid: b301cf3a74be10a42bd4993064b75530
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
@@ -20,5 +20,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 2 Multi.unity
     guid: 2d566d31aca926442ba5e698fcb592c1
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: ea958d4d169856e4ca9ea3f01832e380
+  - enabled: 1
+    path: Assets/Scenes/Level 3 Multi.unity
+    guid: 9fac21f1082844641bc0155f796d694f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 2230f18993dc4fb4d85341eb0a9ee446, type: 2}
