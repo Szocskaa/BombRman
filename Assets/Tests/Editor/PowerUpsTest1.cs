@@ -1,32 +1,41 @@
 using NUnit.Framework;
 using UnityEngine;
 using GameLogic;
-using System.Collections;
 
 public class FasterGhostTests
 {
+    private GameObject player;
     private FasterGhost fasterGhost;
-    private GhostScript ghostScript;
+    private PlayerMovement playerMovement;
 
     [SetUp]
-    public void SetUp()
+    public void Setup()
     {
-        // Create a new GameObject and add the FasterGhost and GhostScript components
-        GameObject gameObject = new GameObject();
-        ghostScript = gameObject.AddComponent<GhostScript>();
-        fasterGhost = gameObject.AddComponent<FasterGhost>();
+        // Create a new GameObject for the player
+        player = new GameObject();
+        // Add the PlayerMovement and FasterGhost components to the player
+        playerMovement = player.AddComponent<PlayerMovement>();
+        fasterGhost = player.AddComponent<FasterGhost>();
     }
 
     [Test]
-    public void ChangeGhostSpeed_ChangesSpeedInGhostScript()
+    public void ChangeGhostSpeed_UpdatesPlayerSpeed()
     {
-        // Arrange
-        float newSpeed = 4;
+        // Arrange: Set an initial speed
+        float initialSpeed = playerMovement.playerSpeed;
+        float newSpeed = 4.0f;
 
-        // Act
+        // Act: Call ChangeGhostSpeed to change the speed
         fasterGhost.ChangeGhostSpeed(newSpeed);
 
-        // Assert
-        Assert.AreEqual(newSpeed, ghostScript.Speed);
+        // Assert: Check that the player speed is updated correctly
+        Assert.AreEqual(newSpeed, playerMovement.playerSpeed);
+    }
+
+    [TearDown]
+    public void TearDown()
+    {
+        // Cleanup the player GameObject after each test
+        Object.DestroyImmediate(player);
     }
 }
