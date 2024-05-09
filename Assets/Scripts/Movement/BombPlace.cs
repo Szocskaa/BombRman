@@ -19,7 +19,7 @@ namespace GameLogic
         public List<GameObject> bombs = new List<GameObject>();
         public bool detonator = false;
 
-        void Start()
+         public void Start()
         {
             currentBombCount = bombCount;
         }
