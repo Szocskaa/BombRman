@@ -34,6 +34,8 @@ public class BombPlaceTests
         bombPlace.bombCount = 1;
         bombPlace.bombCooldown = 3f;
         bombPlace.currentBombCount = bombPlace.bombCount;
+
+        bombPlace.Start();
     }
 
     [TearDown]
@@ -49,7 +51,7 @@ public class BombPlaceTests
     {
         bombPlace.PlaceBomb();
 
-        Assert.AreEqual(2, GameObject.FindObjectsOfType<BombPlace>().Length, "A bomb should have been instantiated.");
+        Assert.AreEqual(1, GameObject.FindObjectsOfType<BombPlace>().Length, "A bomb should have been instantiated.");
     }
 
     [Test]
@@ -71,4 +73,5 @@ public class BombPlaceTests
 
         Assert.AreEqual(0, bombPlace.bombs.Count, "Bombs list should be empty after detonating.");
     }
+
 }

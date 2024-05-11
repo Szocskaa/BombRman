@@ -8,7 +8,7 @@ public class FasterGhost : MonoBehaviour
     private PlayerMovement playerMovement;
     private bool speedChanged = false;
 
-    void Start()
+    public void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
     }

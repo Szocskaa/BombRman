@@ -33882,6 +33882,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7230016443749109500, guid: eb772bc176b803b4fac65076d7a9f7a7, type: 3}
+      propertyPath: bombCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230016443749109500, guid: eb772bc176b803b4fac65076d7a9f7a7, type: 3}
       propertyPath: bombPrefab
       value: 
       objectReference: {fileID: 1862016120}

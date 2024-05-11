@@ -11,19 +11,21 @@ public class FasterGhostTests
     [SetUp]
     public void Setup()
     {
-        // Create a new GameObject for the player
         player = new GameObject();
-        // Add the PlayerMovement and FasterGhost components to the player
         playerMovement = player.AddComponent<PlayerMovement>();
         fasterGhost = player.AddComponent<FasterGhost>();
+
+        // Manually invoke Start if needed
+        fasterGhost.Start();
     }
+
 
     [Test]
     public void ChangeGhostSpeed_UpdatesPlayerSpeed()
     {
         // Arrange: Set an initial speed
         float initialSpeed = playerMovement.playerSpeed;
-        float newSpeed = 4.0f;
+        float newSpeed = 8.0f;
 
         // Act: Call ChangeGhostSpeed to change the speed
         fasterGhost.ChangeGhostSpeed(newSpeed);
