@@ -16,7 +16,7 @@ namespace GameLogic
 
         void Update()
         {
-            if (Time.time >= nextBombTime && Vector3.Distance(transform.position, movingObject.transform.position) <= triggerRadius)
+            if (Time.time >= nextBombTime && movingObject != null && Vector3.Distance(transform.position, movingObject.transform.position) <= triggerRadius)
             {
                 PlaceBomb();
                 nextBombTime = Time.time + bombCooldown;
