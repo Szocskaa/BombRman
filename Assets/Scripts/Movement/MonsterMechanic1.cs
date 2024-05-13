@@ -17,22 +17,25 @@ public class Monster : MonoBehaviour
 
     public void Update()
     {
-        Vector3 goal = goalTransform.position;
-
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        if (goalTransform != null)
         {
-            SetNewDestination();
-            Debug.Log(agent.destination);
-        }
+            Vector3 goal = goalTransform.position;
 
-        // Check if a path to the goal is available
-        NavMeshPath path = new NavMeshPath();
-        if (agent.CalculatePath(goal, path))
-        {
-            if (path.status == NavMeshPathStatus.PathComplete)
+            if (!agent.pathPending && agent.remainingDistance < 0.5f)
             {
-                // If the path is complete, set the agent's destination to the goal
-                agent.SetDestination(goal);
+                SetNewDestination();
+                Debug.Log(agent.destination);
+            }
+
+            // Check if a path to the goal is available
+            NavMeshPath path = new NavMeshPath();
+            if (agent.CalculatePath(goal, path))
+            {
+                if (path.status == NavMeshPathStatus.PathComplete)
+                {
+                    // If the path is complete, set the agent's destination to the goal
+                    agent.SetDestination(goal);
+                }
             }
         }
     }
