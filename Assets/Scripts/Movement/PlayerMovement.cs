@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;  // Animator reference
     [SerializeField] private GameObject bombPrefab;  // Prefab for the bombs
     [SerializeField] public GameObject explosionPrefab;  // Prefab for explosions
-    [SerializeField] public float bombCooldown = 1f;  // Bomb cooldown time
+    [SerializeField] public float bombCooldown = 2f;  // Bomb cooldown time
    
 
     private CharacterController controller;  // CharacterController reference
@@ -74,13 +74,14 @@ public class PlayerMovement : MonoBehaviour
                 Mathf.RoundToInt(transform.position.z)
             );
             GameObject bomb = Instantiate(bombPrefab, position, Quaternion.identity);
+            bomb.tag = "Bomb";
             BombExplosion bombExplosion = bomb.AddComponent<BombExplosion>();
             bombExplosion.radius += radius_plus;
             bombExplosion.bomb = bomb;
             bombExplosion.explosionPrefab = explosionPrefab;
-            bombExplosion.Invoke("Explode", 2f);  // Set timer for explosion
+            bombExplosion.BeginExplode();
             bombExplosion.playerWhoPlacedTheBomb = gameObject;  
-            Destroy(bomb, 2f);
+            Destroy(bomb, 3.0f);
             Physics.IgnoreCollision(bomb.GetComponent<Collider>(), gameObject.GetComponent<Collider>());
         }
     }

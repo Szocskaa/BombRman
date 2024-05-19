@@ -65,7 +65,7 @@ namespace GameLogic
 
                 Vector3 roundedPosition = new Vector3(
                     Mathf.RoundToInt(originalPosition.x),
-                    originalPosition.y,
+                    Mathf.RoundToInt(originalPosition.y),
                     Mathf.RoundToInt(originalPosition.z)
                 );
 
@@ -74,11 +74,10 @@ namespace GameLogic
                 BombExplosion bombExplosion = bomb.AddComponent<BombExplosion>();
                 bombExplosion.bomb = bomb;
                 bombExplosion.explosionPrefab = explosionPrefab;
-                bombExplosion.Invoke("Explode", 2f);
                 bombExplosion.playerWhoPlacedTheBomb = entity;
                 if (!isInTestMode)
                 {
-                    Destroy(bomb, 2f);
+                    Destroy(bomb, 4f);
                 }
                 Physics.IgnoreCollision(bomb.GetComponent<Collider>(), entity.GetComponent<Collider>());
             }
