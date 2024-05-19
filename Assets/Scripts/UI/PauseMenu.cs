@@ -1,15 +1,25 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+using System.Collections;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-
     public GameObject pauseMenuUI;
+
+    private AudioMixer audioMixer;
+    private AudioMixerSnapshot unpausedSnapshot;
+    private AudioMixerSnapshot pausedSnapshot;
 
     void Start()
     {
-        ;
+        // Betöltjük az AudioMixer-t a Resources mappából
+        audioMixer = Resources.Load<AudioMixer>("MainAudioMixer");
+
+        // Lekérjük a Snapshot-okat
+        unpausedSnapshot = audioMixer.FindSnapshot("Unpaused");
+        pausedSnapshot = audioMixer.FindSnapshot("Paused");
     }
 
     void Update()
@@ -22,7 +32,7 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
-                Pause();
+                StartCoroutine(PauseWithTransition());
             }
         }
     }
@@ -32,31 +42,29 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        unpausedSnapshot.TransitionTo(0.3f); // Átállítjuk a normál Snapshot-ra
     }
 
-    void Pause()
+    IEnumerator PauseWithTransition()
     {
         pauseMenuUI.SetActive(true);
+        pausedSnapshot.TransitionTo(0.3f); // Átállítjuk a szüneteltetett Snapshot-ra
+        yield return new WaitForSecondsRealtime(0.3f); // Várunk, hogy az átmenet befejezõdjön
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
 
     public void ExitToMainMenu()
     {
-        // Idõarányosság visszaállítása
         Time.timeScale = 1f;
-
-        // Megkeressük és megsemmisítjük a PlayerConfigurationManager példányt
         var playerConfigManager = FindObjectOfType<PlayerConfigurationManager>();
         if (playerConfigManager != null)
         {
             Destroy(playerConfigManager.gameObject);
         }
-
-        // Betöltjük a fõmenü jelenetet
         SceneManager.LoadScene("MainMenu");
+        unpausedSnapshot.TransitionTo(2.0f);
     }
-
 
     public void Quit()
     {
