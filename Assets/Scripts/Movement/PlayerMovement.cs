@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     public float radius_plus = 0f;
     private static readonly int IdleState = Animator.StringToHash("Base Layer.idle");
     private static readonly int MoveState = Animator.StringToHash("Base Layer.move");
-
+        
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();  // Initialize CharacterController

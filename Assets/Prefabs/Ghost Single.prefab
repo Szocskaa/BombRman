@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7621158955957789514}
   - component: {fileID: 2888928385621064177}
-  - component: {fileID: 690647011170903367}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: PlayerObject
@@ -106,19 +105,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0.002765044, z: -0.00214535}
     m_Extent: {x: 0.0056557246, y: 0.0056063053, z: 0.0047500776}
   m_DirtyAABB: 0
---- !u!114 &690647011170903367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 78376194054842420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7300f70616a96d43acf752eee38759b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MeshR: []
 --- !u!1 &841135338149183226
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,6 +961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MeshR:
   - {fileID: 2888928385621064177}
+  igenpw: 0
 --- !u!114 &2315426316043161940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1026,6 +1013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 7230016443749109500}
+  igen: 0
 --- !u!114 &9066932406510678960
 MonoBehaviour:
   m_ObjectHideFlags: 0
