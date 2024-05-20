@@ -9,27 +9,14 @@ public class GhostPW : MonoBehaviour
     public bool igenpw = false;
 
     void Update()
-{
-    if (Input.GetKeyDown(KeyCode.Alpha2) || igenpw)
     {
-        StartCoroutine(FadeGhostCoroutine());
+        if (Input.GetKeyDown(KeyCode.Alpha2) || igenpw)
+        {
+            StartCoroutine(FadeGhostCoroutine());
+        }
     }
-}
 
-    private void FadeGhost()
-    {
-        
-        
-            Debug.Log("Fading ghost");
-            foreach (SkinnedMeshRenderer meshR in MeshR)
-            {
-                Color color = meshR.material.color;
-                color.a = 0.5f;
-                meshR.material.color = color;
-            }
-        
-    }
-      private IEnumerator FadeGhostCoroutine()
+    private IEnumerator FadeGhostCoroutine()
     {
         Debug.Log("Fading ghost");
         gameObject.layer = LayerMask.NameToLayer("Ghost");
@@ -37,7 +24,7 @@ public class GhostPW : MonoBehaviour
         {
             Color color = meshR.sharedMaterial.color;
             color.a = 0.5f;
-            meshR.sharedMaterial.color = color;
+            meshR.material.color = color;
         }
 
         yield return new WaitForSeconds(7);
@@ -51,11 +38,11 @@ public class GhostPW : MonoBehaviour
         {
             foreach (SkinnedMeshRenderer meshR in MeshR)
             {
-                Color color = meshR.material.color;
+                Color color = meshR.material.color; // Use material instead of sharedMaterial
                 color.a = (color.a == 1f) ? 0.5f : 1f;
                 meshR.material.color = color;
             }
-
+            
             yield return new WaitForSeconds(0.125f);
         }
         Collider[] overlaps = Physics.OverlapSphere(transform.position, 1f, LayerMask.GetMask("Ghost"));
@@ -66,6 +53,7 @@ public class GhostPW : MonoBehaviour
         }
         gameObject.layer = LayerMask.NameToLayer("Default");
     }
+
     public void FadeGhostCoroutineTestable()
     {
         Debug.Log("Fading ghost");
@@ -78,19 +66,17 @@ public class GhostPW : MonoBehaviour
         }
     }
 
-
     public void BlinkGhostImmediate()
     {
-        for (int i = 0; i < 21; i++)
+        for (int i = 0; i < 20; i++)
         {
             foreach (SkinnedMeshRenderer meshR in MeshR)
             {
-                Color color = meshR.sharedMaterial.color;
+                Color color = meshR.material.color; // Use material instead of sharedMaterial
                 color.a = (color.a == 1f) ? 0.5f : 1f;
-                meshR.sharedMaterial.color = color;
+                meshR.material.color = color;
             }
         }
         gameObject.layer = LayerMask.NameToLayer("Default");
     }
-
 }

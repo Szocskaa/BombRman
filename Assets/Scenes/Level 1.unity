@@ -12073,7 +12073,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 1.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -15160,7 +15160,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 0.7
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -26690,7 +26690,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 0.7
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -34862,6 +34862,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 78376194054842420, guid: eb772bc176b803b4fac65076d7a9f7a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 78376194054842420, guid: eb772bc176b803b4fac65076d7a9f7a7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372160753244076864, guid: eb772bc176b803b4fac65076d7a9f7a7, type: 3}
+      propertyPath: m_NeverAutoSwitchControlSchemes
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7230016443749109500, guid: eb772bc176b803b4fac65076d7a9f7a7, type: 3}
       propertyPath: bombCount
       value: 1
@@ -34874,6 +34886,10 @@ PrefabInstance:
       propertyPath: explosionPrefab
       value: 
       objectReference: {fileID: 1402405752}
+    - target: {fileID: 7642553561968422232, guid: eb772bc176b803b4fac65076d7a9f7a7, type: 3}
+      propertyPath: igenpw
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8164844503534486146, guid: eb772bc176b803b4fac65076d7a9f7a7, type: 3}
       propertyPath: m_Name
       value: Ghost
