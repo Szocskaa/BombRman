@@ -6,7 +6,7 @@ public class PowerUpPlacer : MonoBehaviour
 {
     public GameObject[] objectsToPlace;
     public GameObject biggerBummPU;
-    public GameObject moreBombPU;
+    public GameObject moreBombsPU;
     public GameObject detonatorPU;
     public GameObject rollerSkatePU;
     public GameObject invulnerablePU;
@@ -21,19 +21,21 @@ public class PowerUpPlacer : MonoBehaviour
 
         foreach (GameObject obj in destructibles)
         {
-            positionList.Add(obj.transform.position);
+            Vector3 modifiedPosition = obj.transform.position;
+            modifiedPosition.y += 0.5f;
+            positionList.Add(modifiedPosition);
         }
+
 
         positions = positionList.ToArray();
 
         objectsToPlace = new GameObject[] {
             biggerBummPU, biggerBummPU, biggerBummPU,
-            moreBombPU, moreBombPU, moreBombPU,
-            detonatorPU, detonatorPU, detonatorPU,
-            rollerSkatePU, rollerSkatePU, rollerSkatePU,
-            invulnerablePU, invulnerablePU, invulnerablePU,
-            ghostPU, ghostPU, ghostPU,
-            placerPU, placerPU, placerPU
+            biggerBummPU, biggerBummPU, biggerBummPU,
+            biggerBummPU, biggerBummPU, biggerBummPU,
+            moreBombsPU, moreBombsPU, moreBombsPU,
+            moreBombsPU, moreBombsPU, moreBombsPU,
+            moreBombsPU, moreBombsPU, moreBombsPU
         };
 
         PlaceObjectsRandomly();

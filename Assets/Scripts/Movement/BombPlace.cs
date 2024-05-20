@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +10,7 @@ namespace GameLogic
         public GameObject bombPrefab;
         public GameObject entity;
         public GameObject explosionPrefab;
-        public float bombCooldown = 3f;
+        public float bombCooldown = 6f;
         public float nextBombTime = 0f;
         public int bombCount = 1;
         public int currentBombCount;
@@ -111,4 +111,4 @@ namespace GameLogic
             bombs.Clear();
         }
     }
-}
+}*/

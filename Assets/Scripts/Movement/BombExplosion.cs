@@ -91,7 +91,7 @@ namespace GameLogic
         {
             for (float distance = 1.0f; distance <= radius; distance += 1.0f)
             {
-                float delay = distance * explosionDelay;
+                float delay = explosionDelay;
                 Vector3 checkPosition = explosionPosition + dir.normalized * distance;
 
                 yield return new WaitForSeconds(delay);

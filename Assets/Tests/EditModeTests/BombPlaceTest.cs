@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+﻿/*using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using GameLogic;
@@ -75,3 +75,4 @@ public class BombPlaceTests
     }
 
 }
+*/
