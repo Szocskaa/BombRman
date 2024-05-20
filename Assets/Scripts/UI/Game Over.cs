@@ -1,25 +1,31 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
+
 public class GameOver : MonoBehaviour
 {
+    public GameObject GameOverUI;
 
-        public GameObject GameOverUI;
+    private AudioMixer audioMixer;
+    private AudioMixerSnapshot unpausedSnapshot;
+    private AudioMixerSnapshot gameOverSnapshot;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        // Betöltjük az AudioMixer-t a Resources mappából
+        audioMixer = Resources.Load<AudioMixer>("MainAudioMixer");
 
-    // Update is called once per frame
-    void Update()
-    {
-        Invoke("CheckPlayerExistence", 1);
+        // Lekérjük a Snapshot-okat
+        unpausedSnapshot = audioMixer.FindSnapshot("Unpaused");
+        gameOverSnapshot = audioMixer.FindSnapshot("Paused");
+
+        InvokeRepeating("CheckPlayerExistence", 1f, 1f);
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        unpausedSnapshot.TransitionTo(0.6f);
     }
 
     void CheckPlayerExistence()
@@ -28,6 +34,7 @@ public class GameOver : MonoBehaviour
         if (playerObject == null)
         {
             GameOverUI.SetActive(true);
+            gameOverSnapshot.TransitionTo(0.6f);
         }
     }
 }

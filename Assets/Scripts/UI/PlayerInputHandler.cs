@@ -30,6 +30,11 @@ public class PlayerInputHandler : MonoBehaviour
         config.Input.onActionTriggered += OnActionTriggered; // Feliratkozás az akció indítási eseményekre
     }
 
+    public PlayerConfiguration GetPlayerConfig()
+    {
+        return playerConfig;
+    }
+
     private void OnActionTriggered(CallbackContext context)
     {
         if (context.action.name == "Movement")

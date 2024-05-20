@@ -13,6 +13,10 @@ PrefabInstance:
       value: Ghost Multi
       objectReference: {fileID: 0}
     - target: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 19588385245968726, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
       propertyPath: m_TagString
       value: PlayerObject
       objectReference: {fileID: 0}
@@ -324,6 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MeshR:
   - {fileID: 7447333433513326293}
+  igenpw: 0
 --- !u!114 &-2531911787646777777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,6 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 1384796023146829928}
+  igen: 0
 --- !u!4 &5343962036895820647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 238313852594129878, guid: 8ee08d04ad5df46fbb2e97260b63420b, type: 3}
