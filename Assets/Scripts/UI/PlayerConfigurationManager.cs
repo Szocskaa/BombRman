@@ -136,6 +136,11 @@ public class PlayerConfigurationManager : MonoBehaviour
     {
         playerWins[playerIndex] = wins;
     }
+
+    public void ResetPlayerWins()
+    {
+        playerWins.Clear();
+    }
 }
 
 public class PlayerConfiguration

@@ -60,6 +60,7 @@ public class PauseMenu : MonoBehaviour
         var playerConfigManager = FindObjectOfType<PlayerConfigurationManager>();
         if (playerConfigManager != null)
         {
+            playerConfigManager.ResetPlayerWins();
             Destroy(playerConfigManager.gameObject);
         }
         SceneManager.LoadScene("MainMenu");
