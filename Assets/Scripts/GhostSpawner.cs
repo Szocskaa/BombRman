@@ -2,13 +2,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+namespace GameLogic{
 public class GhostSpawner : MonoBehaviour
 {
-    [SerializeField] private List<Transform> spawnPositions;  // A spawn pozíciók listája
-    [SerializeField] private GameObject ghostPrefab;  // A Ghost prefab
-    private PlayerConfigurationManager playerConfigManager;  // A PlayerConfigurationManager példánya
+    [SerializeField] public List<Transform> spawnPositions;  // A spawn pozï¿½ciï¿½k listï¿½ja
+    [SerializeField] public GameObject ghostPrefab;  // A Ghost prefab
+    public PlayerConfigurationManager playerConfigManager;  // A PlayerConfigurationManager pï¿½ldï¿½nya
 
-    private void Start()
+    public void Start()
     {
         playerConfigManager = PlayerConfigurationManager.Instance;
 
@@ -40,34 +41,34 @@ public class GhostSpawner : MonoBehaviour
             var ghost = Instantiate(ghostPrefab, spawnPosition.position, spawnPosition.rotation);
             ghost.name = $"Ghost_{i}";
 
-            // Skinned Mesh Renderer ellenõrzése és szín alkalmazása
+            // Skinned Mesh Renderer ellenï¿½rzï¿½se ï¿½s szï¿½n alkalmazï¿½sa
             var skinnedMeshRenderer = ghost.GetComponent<SkinnedMeshRenderer>();
             if (skinnedMeshRenderer == null)
             {
-                Debug.LogError($"Ghost {i} does not have a Skinned Mesh Renderer.");  // Logolj hibaüzenetet
+                Debug.LogError($"Ghost {i} does not have a Skinned Mesh Renderer.");  // Logolj hibaï¿½zenetet
             }
             else
             {
                 if (playerConfig.playerMaterial != null)
                 {
-                    skinnedMeshRenderer.material = playerConfig.playerMaterial;  // Alkalmazd a játékos által kiválasztott színt
-                    Debug.Log($"Ghost {i} material set to {playerConfig.playerMaterial.name}");  // Logold a szín alkalmazását
+                    skinnedMeshRenderer.material = playerConfig.playerMaterial;  // Alkalmazd a jï¿½tï¿½kos ï¿½ltal kivï¿½lasztott szï¿½nt
+                    Debug.Log($"Ghost {i} material set to {playerConfig.playerMaterial.name}");  // Logold a szï¿½n alkalmazï¿½sï¿½t
                 }
                 else
                 {
-                    Debug.LogError($"Ghost {i} does not have a valid playerMaterial.");  // Logolj hibaüzenetet
+                    Debug.LogError($"Ghost {i} does not have a valid playerMaterial.");  // Logolj hibaï¿½zenetet
                 }
             }
 
-            // PlayerInputHandler inicializálása
+            // PlayerInputHandler inicializï¿½lï¿½sa
             var inputHandler = ghost.GetComponent<PlayerInputHandler>();
             if (inputHandler != null)
             {
-                inputHandler.InitializePlayer(playerConfig);  // Hozzáadjuk a PlayerConfig-ot a Ghost-hoz
+                inputHandler.InitializePlayer(playerConfig);  // Hozzï¿½adjuk a PlayerConfig-ot a Ghost-hoz
                 Debug.Log($"Ghost {i} initialized with PlayerInputHandler");
             }
 
             Debug.Log($"Ghost {i} spawned with {playerConfig.Input.devices[0].displayName} device.");
         }
     }
-}
+}}

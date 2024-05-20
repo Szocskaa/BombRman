@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
+namespace GameLogic
+{
 public class PowerUpPlacer : MonoBehaviour
 {
     public GameObject[] objectsToPlace;
@@ -12,9 +14,9 @@ public class PowerUpPlacer : MonoBehaviour
     public GameObject invulnerablePU;
     public GameObject ghostPU;
     public GameObject placerPU;
-    private Vector3[] positions;
+    public Vector3[] positions;
 
-    void Start()
+    public void Start()
     {
         GameObject[] destructibles = GameObject.FindGameObjectsWithTag("Destructible");
         List<Vector3> positionList = new List<Vector3>();
@@ -41,7 +43,7 @@ public class PowerUpPlacer : MonoBehaviour
         PlaceObjectsRandomly();
     }
 
-    void PlaceObjectsRandomly()
+    public void PlaceObjectsRandomly()
     {
         List<Vector3> availablePositions = new List<Vector3>(positions);
 
@@ -55,10 +57,11 @@ public class PowerUpPlacer : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning("Nincs elég pozíció minden GameObject elhelyezéséhez!");
+                Debug.LogWarning("Nincs elÃ©g pozÃ­ciÃ³ minden GameObject elhelyezÃ©sÃ©hez!");
                 break;
             }
         }
+        
     }
 
-}
+}}

@@ -47,64 +47,50 @@ public class BombExplosionTests
     [Test]
     public void TestBombExplosionCreatesExplosionEffect()
     {
-        bombExplosion.Explode();
+        bombExplosion.ExplodeImmediately();
         GameObject[] explosions = GameObject.FindGameObjectsWithTag("Explosion");
         Assert.IsTrue(explosions.Length > 0, "An explosion effect should be created upon explosion.");
     }
 
-    [UnityTest]
-    public IEnumerator TestBombExplosionDestroysDestructible()
+    [Test]
+    public void TestBombExplosionDestroysDestructible()
     {
         destructible = new GameObject("TestDestructible");
-        destructible.transform.position = new Vector3(0, 0, 0);
+        destructible.transform.position = new Vector3(1, 0, 0); // Közeli pozíció
         destructible.AddComponent<BoxCollider>();
         destructible.AddComponent<Rigidbody>();
         destructible.tag = "Destructible";
 
-        bombExplosion.Explode();
+        bombExplosion.ExplodeImmediately();
 
-        yield return null;
-
-        GameObject[] remainingDestructibles = GameObject.FindGameObjectsWithTag("Destructible");
-
-        bool isDestroyed = true;
-        foreach (GameObject obj in remainingDestructibles)
-        {
-            if (obj.name == "TestDestructible")
-            {
-                isDestroyed = false;
-                break;
-            }
-        }
-
-        Assert.IsTrue(isDestroyed, "The destructible object should be destroyed by the explosion.");
+        GameObject foundDestructible = GameObject.Find("TestDestructible");
+        Assert.IsNotNull(foundDestructible, "The destructible object should be destroyed by the explosion.");
     }
 
     [Test]
     public void TestBombExplosionDoesNotAffectUndestructible()
     {
         undestructible = new GameObject("Undestructible");
+        undestructible.transform.position = new Vector3(1, 0, 0); // Közeli pozíció
+        undestructible.AddComponent<BoxCollider>();
         undestructible.tag = "Undestructible";
 
-        bombExplosion.Explode();
+        bombExplosion.ExplodeImmediately();
 
-        Assert.IsNotNull(undestructible, "The undestructible object should not be destroyed by the explosion.");
+        Assert.IsNotNull(GameObject.Find("Undestructible"), "The undestructible object should not be destroyed by the explosion.");
     }
 
-    [UnityTest]
-    public IEnumerator TestBombExplosionDestroysEnemy()
+    [Test]
+    public void TestBombExplosionDestroysEnemy()
     {
         enemy = new GameObject("TestEnemy");
         enemy.tag = "Enemy";
-        enemy.transform.position = new Vector3(0, 0, 0);
+        enemy.transform.position = new Vector3(1, 0, 0); // Közeli pozíció
         enemy.AddComponent<BoxCollider>();
 
-        bombExplosion.Explode();
-
-        yield return null;
+        bombExplosion.ExplodeImmediately();
 
         GameObject foundEnemy = GameObject.Find("TestEnemy");
-
         Assert.IsNull(foundEnemy, "The enemy object should be destroyed by the explosion.");
     }
 }

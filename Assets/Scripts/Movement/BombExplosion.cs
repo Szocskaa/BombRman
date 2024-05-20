@@ -155,5 +155,75 @@ namespace GameLogic
                 DestroyImmediate(explosionEffect);
             }
         }
+        // Új metódus a közvetlen robbanási logika tesztelésére
+        public void ExplodeImmediately()
+        {
+            Vector3 explosionPosition = bomb.transform.position;
+
+            GameObject bigExplosion = Instantiate(explosionPrefab, explosionPosition, Quaternion.identity);
+            DestroyImmediate(bigExplosion);
+
+            float nullRadius = 0.2f;
+            Collider[] initialHits = Physics.OverlapSphere(explosionPosition, nullRadius);
+            foreach (Collider hitCollider in initialHits)
+            {
+                if (hitCollider.CompareTag("PlayerObject") || hitCollider.CompareTag("Enemy"))
+                {
+                    DestroyImmediate(hitCollider.gameObject);
+                }
+            }
+
+            foreach (Vector3 dir in directions)
+            {
+                SimulateDelayedExplosion(explosionPosition, dir);
+            }
+        }
+
+        public void SimulateDelayedExplosion(Vector3 explosionPosition, Vector3 dir)
+        {
+            for (float distance = 1.0f; distance <= radius; distance += 1.0f)
+            {
+                Vector3 checkPosition = explosionPosition + dir.normalized * distance;
+
+                if (Physics.Raycast(explosionPosition, dir, out RaycastHit hit, distance))
+                {
+                    
+                    if (hit.collider.CompareTag("Undestructible"))
+                    {
+                        break;
+                    }
+                    else if (hit.collider.CompareTag("Destructible") || hit.collider.CompareTag("PlayerObject") || hit.collider.CompareTag("Enemy"))
+                    {
+                        DestroyAndExplodeImmediate(hit, checkPosition);
+                        break;
+                    }
+                    else if (hit.collider.CompareTag("Bomb"))
+                    {
+                        hit.collider.GetComponent<BombExplosion>().ExplodeImmediately();
+                        DestroyImmediate(hit.collider.gameObject);
+                        break;
+                    }
+                }
+                else
+                {
+                    JustExplodeImmediate(checkPosition);
+                }
+            }
+        }
+
+        public void DestroyAndExplodeImmediate(RaycastHit hit, Vector3 checkPosition)
+        {
+            DestroyImmediate(hit.collider.gameObject);
+            GameObject explosionEffect = Instantiate(explosionPrefab, checkPosition, Quaternion.identity);
+            DestroyImmediate(explosionEffect);
+        }
+
+        public void JustExplodeImmediate(Vector3 checkPosition)
+        {
+            GameObject explosionEffect = Instantiate(explosionPrefab, checkPosition, Quaternion.identity);
+            DestroyImmediate(explosionEffect);
+        }
     }
 }
+
+

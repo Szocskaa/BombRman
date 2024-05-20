@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using GameLogic;
 
+
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
@@ -66,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void PlaceBomb()
+    public void PlaceBomb()
     {
         if (bombPrefab != null)
         {
@@ -88,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void PlaceBombDetonator()
+    public void PlaceBombDetonator()
     {
         if (bombPrefab != null)
         {
@@ -97,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void ExplodeDetonator()
+    public void ExplodeDetonator()
     {
         foreach (GameObject bomb in bombs)
         {
@@ -127,7 +128,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Update()
+    public void Update()
     {
         groundedPlayer = controller.isGrounded;  // Check if grounded
         if (groundedPlayer && playerVelocity.y < 0)
