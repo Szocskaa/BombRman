@@ -1,5 +1,4 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 <<<<<<<< HEAD:Assets/Resources.meta
 guid: a8c5508761b02454baeafadc02e992b0
 folderAsset: yes
@@ -8,11 +7,6 @@ DefaultImporter:
 guid: c794e7b0036230a4495d398af34cb456
 PrefabImporter:
 >>>>>>>> audio:Assets/Scenes/UI.prefab.meta
-=======
-guid: fe8099ba295363942992c161dc1afbbb
-folderAsset: yes
-DefaultImporter:
->>>>>>> audio
   externalObjects: {}
   userData: 
   assetBundleName: 
