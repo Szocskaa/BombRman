@@ -9,8 +9,9 @@ public class PlayerScoreUIManager : MonoBehaviour
     public Transform scorePanelParent; // The parent transform for the score panels
 
     // Add a Dictionary to hold the different colored GhostImages
-    private Dictionary<string, Sprite> ghostSprites = new Dictionary<string, Sprite>();
+    public Dictionary<string, Sprite> ghostSprites = new Dictionary<string, Sprite>(); // Make it public
 
+    private Dictionary<int, int> playerScores = new Dictionary<int, int>(); // Dictionary to keep track of player scores
     private List<GameObject> playerScorePanels = new List<GameObject>();
 
     // Load the sprites in the Awake method
@@ -82,6 +83,8 @@ public class PlayerScoreUIManager : MonoBehaviour
     {
         if (playerIndex >= 0 && playerIndex < playerScorePanels.Count)
         {
+            playerScores[playerIndex] = score;
+
             var panel = playerScorePanels[playerIndex];
             var winsText = panel.transform.Find("Wins").GetComponent<TextMeshProUGUI>();
             if (winsText != null)
@@ -89,5 +92,11 @@ public class PlayerScoreUIManager : MonoBehaviour
                 winsText.text = $"Wins: {score}";
             }
         }
+    }
+
+    // Method to get the current score of a specific player
+    public int GetPlayerScore(int playerIndex)
+    {
+        return playerScores.ContainsKey(playerIndex) ? playerScores[playerIndex] : 0;
     }
 }

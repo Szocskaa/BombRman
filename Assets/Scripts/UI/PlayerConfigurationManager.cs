@@ -12,6 +12,9 @@ public class PlayerConfigurationManager : MonoBehaviour
 
     private PlayerScoreUIManager playerScoreUIManager;
 
+    // Static dictionary to keep track of player wins across scene loads
+    private static Dictionary<int, int> playerWins = new Dictionary<int, int>();
+
     private void Awake()
     {
         if (Instance != null)
@@ -43,8 +46,17 @@ public class PlayerConfigurationManager : MonoBehaviour
             playerScoreUIManager = FindObjectOfType<PlayerScoreUIManager>();
             if (playerScoreUIManager != null)
             {
-                // Inicializáljuk a UI elemeket a playerConfigs alapján
+                // Initialize the UI elements with the playerConfigs
                 playerScoreUIManager.InitializePlayerScores(playerConfigs);
+
+                // Restore player wins from the static dictionary
+                foreach (var config in playerConfigs)
+                {
+                    if (playerWins.ContainsKey(config.PlayerIndex))
+                    {
+                        playerScoreUIManager.UpdatePlayerScore(config.PlayerIndex, playerWins[config.PlayerIndex]);
+                    }
+                }
             }
         }
     }
@@ -118,9 +130,13 @@ public class PlayerConfigurationManager : MonoBehaviour
             SceneManager.LoadScene(SelectedLevel);
         }
     }
+
+    // Method to update player wins in the static dictionary
+    public void UpdatePlayerWins(int playerIndex, int wins)
+    {
+        playerWins[playerIndex] = wins;
+    }
 }
-
-
 
 public class PlayerConfiguration
 {
