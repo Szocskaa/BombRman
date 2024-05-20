@@ -7,11 +7,10 @@ using GameLogic;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] public float playerSpeed = 4.0f;  // Speed setting
-    private float gravity = -9.81f;  // Gravity setting
+    private float gravity = -9.81f;  // Gravity settings
     [SerializeField] private Animator animator;  // Animator reference
     [SerializeField] private GameObject bombPrefab;  // Prefab for the bombs
     [SerializeField] public GameObject explosionPrefab;  // Prefab for explosions
-    [SerializeField] public float bombCooldown = 1f;  // Bomb cooldown time
    
 
     private CharacterController controller;  // CharacterController reference
@@ -19,19 +18,22 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movementInput = Vector2.zero;  // 2D input for movement
     private bool groundedPlayer;  // Check if player is grounded
 
-    public int bombCount = 1;  // Maximum bombs that can be placed
-    public int currentBombCount;  // Current available bombs
+    public bool hasSpeedBoost = false;
+    public float bombCooldown = 1.5f;
+    public int maxBombs = 1;  // Maximum bombs that can be placed
+    public int availableBombs;  // Current available bombs
     private float nextBombTime = 0f;  // Next allowed bomb time
     private List<GameObject> bombs = new List<GameObject>();  // List of placed bombs
     public bool detonator = false;  // Detonator mode
     public float radius_plus = 0f;
+    public float destroyTime = 3f;
     private static readonly int IdleState = Animator.StringToHash("Base Layer.idle");
     private static readonly int MoveState = Animator.StringToHash("Base Layer.move");
         
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();  // Initialize CharacterController
-        currentBombCount = bombCount;  // Initialize available bombs
+        availableBombs = maxBombs;  // Initialize available bombs
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -41,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnBombPlace(InputAction.CallbackContext context)
     {
-        if (context.performed && Time.time >= nextBombTime && currentBombCount > 0)
+        if (context.performed && Time.time >= nextBombTime && availableBombs > 0)
         {
             if (detonator)
             {
@@ -51,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 PlaceBomb();
             }
-            currentBombCount--;  // Decrease available bombs
+            availableBombs--;  // Decrease available bombs
             nextBombTime = Time.time + bombCooldown;  // Set cooldown
         }
     }
@@ -74,13 +76,14 @@ public class PlayerMovement : MonoBehaviour
                 Mathf.RoundToInt(transform.position.z)
             );
             GameObject bomb = Instantiate(bombPrefab, position, Quaternion.identity);
+            bomb.tag = "Bomb";
             BombExplosion bombExplosion = bomb.AddComponent<BombExplosion>();
             bombExplosion.radius += radius_plus;
             bombExplosion.bomb = bomb;
             bombExplosion.explosionPrefab = explosionPrefab;
-            bombExplosion.Invoke("Explode", 2f);  // Set timer for explosion
+            bombExplosion.BeginExplode();
             bombExplosion.playerWhoPlacedTheBomb = gameObject;  
-            Destroy(bomb, 2f);
+            Destroy(bomb, destroyTime);
             Physics.IgnoreCollision(bomb.GetComponent<Collider>(), gameObject.GetComponent<Collider>());
         }
     }
@@ -105,6 +108,23 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         bombs.Clear();  // Clear the list after detonation
+    }
+
+    public void IncreaseExplosionRadius(float increaseAmount)
+    {
+        radius_plus += increaseAmount;
+        destroyTime += 0.2f;
+        Debug.Log("Explosion radius increased to: " + radius_plus);
+    }
+
+    public void IncreaseBombCount()
+    {
+        if (maxBombs < 3)
+        {
+            maxBombs++;
+            bombCooldown -= 0.5f;
+            Debug.Log("Max bombs increased to: " + maxBombs);
+        }
     }
 
     void Update()
@@ -147,9 +167,9 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);  // Move with gravity
 
         // Bomb cooldown handling
-        if (Time.time >= nextBombTime && currentBombCount + bombs.Count < bombCount)
+        if (Time.time >= nextBombTime && availableBombs + bombs.Count < maxBombs)
         {
-            currentBombCount++;  // Increase available bombs
+            availableBombs++;  // Increase available bombs
             nextBombTime = Time.time + bombCooldown;  // Set cooldown
         }
     }

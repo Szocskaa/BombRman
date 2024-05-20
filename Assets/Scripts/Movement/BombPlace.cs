@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +10,7 @@ namespace GameLogic
         public GameObject bombPrefab;
         public GameObject entity;
         public GameObject explosionPrefab;
-        public float bombCooldown = 3f;
+        public float bombCooldown = 6f;
         public float nextBombTime = 0f;
         public int bombCount = 1;
         public int currentBombCount;
@@ -65,7 +65,7 @@ namespace GameLogic
 
                 Vector3 roundedPosition = new Vector3(
                     Mathf.RoundToInt(originalPosition.x),
-                    originalPosition.y,
+                    Mathf.RoundToInt(originalPosition.y),
                     Mathf.RoundToInt(originalPosition.z)
                 );
 
@@ -74,11 +74,10 @@ namespace GameLogic
                 BombExplosion bombExplosion = bomb.AddComponent<BombExplosion>();
                 bombExplosion.bomb = bomb;
                 bombExplosion.explosionPrefab = explosionPrefab;
-                bombExplosion.Invoke("Explode", 2f);
                 bombExplosion.playerWhoPlacedTheBomb = entity;
                 if (!isInTestMode)
                 {
-                    Destroy(bomb, 2f);
+                    Destroy(bomb, 4f);
                 }
                 Physics.IgnoreCollision(bomb.GetComponent<Collider>(), entity.GetComponent<Collider>());
             }
@@ -112,4 +111,4 @@ namespace GameLogic
             bombs.Clear();
         }
     }
-}
+}*/

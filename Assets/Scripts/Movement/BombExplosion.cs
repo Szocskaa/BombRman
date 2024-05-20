@@ -1,5 +1,6 @@
 using UnityEngine;
 using GameLogic;
+using System.Collections;
 
 namespace GameLogic
 {
@@ -9,7 +10,9 @@ namespace GameLogic
         public GameObject explosionPrefab;
         public GameObject playerWhoPlacedTheBomb;
         public float explosionDuration = 10.0f;
-        public float radius = 1.0f;
+        public float radius = 2.0f;
+
+        public float explosionDelay = 0.2f;
 
         public bool isInTestMode = false;
 
@@ -29,6 +32,11 @@ namespace GameLogic
             }
         }
 
+        public void BeginExplode()
+        {
+            Invoke("Explode", 2f);
+        }
+
         public void Explode()
         {
             Vector3 explosionPosition = bomb.transform.position;
@@ -44,7 +52,7 @@ namespace GameLogic
             }
 
             
-            float nullRadius = 0f;
+            float nullRadius = 0.2f;
 
             Collider[] initialHits = Physics.OverlapSphere(explosionPosition, nullRadius);
             foreach (Collider hitCollider in initialHits)
@@ -75,84 +83,76 @@ namespace GameLogic
 
             foreach (Vector3 dir in directions)
             {
-                RaycastHit[] hits = Physics.RaycastAll(explosionPosition, dir, radius);
+                StartCoroutine(DelayedExplosion(explosionPosition, dir));
+            }
+        }
 
-                for (float distance = 1.0f; distance <= radius; distance += 1.0f)
+        private IEnumerator DelayedExplosion(Vector3 explosionPosition, Vector3 dir)
+        {
+            for (float distance = 1.0f; distance <= radius; distance += 1.0f)
+            {
+                float delay = explosionDelay;
+                Vector3 checkPosition = explosionPosition + dir.normalized * distance;
+
+                yield return new WaitForSeconds(delay);
+
+                if (Physics.Raycast(explosionPosition, dir, out RaycastHit hit, distance))
                 {
-                    Vector3 checkPosition = explosionPosition + dir.normalized * distance;
-
-                    if (Physics.Raycast(explosionPosition, dir, out RaycastHit hit, distance))
-                    {
-                        if (hit.collider.CompareTag("Undestructible"))
-                        {
-                            break;
-                        }
-                        else if (hit.collider.CompareTag("Destructible"))
-                        {
-                            if (!isInTestMode)
-                            {
-                                Destroy(hit.collider.gameObject);
-                            }
-                            else
-                            {
-                                DestroyImmediate(hit.collider.gameObject);
-                            }
-                        }
-                        else if (hit.collider.CompareTag("PlayerObject"))
-                        {
-                            if (!isInTestMode)
-                            {
-                                Destroy(hit.collider.gameObject);
-                            }
-                            else
-                            {
-                                DestroyImmediate(hit.collider.gameObject);
-                            }
-                        }
-                        else if (hit.collider.CompareTag("Enemy"))
-                        {
-                            if (!isInTestMode)
-                            {
-                                Destroy(hit.collider.gameObject);
-                            }
-                            else
-                            {
-                                DestroyImmediate(hit.collider.gameObject);
-                            }
-                        }
-                    }
-
-                    GameObject explosionEffect = Instantiate(explosionPrefab, checkPosition, Quaternion.identity);
-                    if (!isInTestMode)
-                    {
-                        Destroy(explosionEffect, explosionDuration);
-                    }
-                    else
-                    {
-                        DestroyImmediate(explosionEffect);
-                    }
-                }
-
-
-                foreach (RaycastHit hit in hits)
-                {
+                    Debug.Log(hit.collider.name);
                     if (hit.collider.CompareTag("Undestructible"))
                     {
-                        break;
+                        yield break;
                     }
                     else if (hit.collider.CompareTag("Destructible"))
                     {
-                        if (!isInTestMode)
-                        {
-                            Destroy(hit.collider.gameObject);
-                        }
-                        else
-                        {
-                            DestroyImmediate(hit.collider.gameObject);
-                        }
+                        DestroyAndExplode(hit, checkPosition);
+                        yield break;
                     }
-
+                    else if (hit.collider.CompareTag("PlayerObject") || hit.collider.CompareTag("Enemy"))
+                    {
+                        DestroyAndExplode(hit, checkPosition);
+                    }
+                    else if (hit.collider.CompareTag("Bomb"))
+                    {
+                        hit.collider.GetComponent<BombExplosion>().Explode(); ;
+                        Destroy(hit.collider.gameObject);
+                        yield break;
+                    }
                 }
+                else
+                {
+                    JustExplode(checkPosition);
+                }
+                
+            }
+        }
+
+        public void DestroyAndExplode(RaycastHit hit, Vector3 checkPosition)
+        {
+            if (!isInTestMode)
+            {
+                Destroy(hit.collider.gameObject);
+                GameObject explosionEffect = Instantiate(explosionPrefab, checkPosition, Quaternion.identity);
+                Destroy(explosionEffect, explosionDuration);
+            }
+            else
+            {
+                DestroyImmediate(hit.collider.gameObject);
+                GameObject explosionEffect = Instantiate(explosionPrefab, checkPosition, Quaternion.identity);
+                DestroyImmediate(explosionEffect);
+            }
+        }
+
+        public void JustExplode(Vector3 checkPosition)
+        {
+            GameObject explosionEffect = Instantiate(explosionPrefab, checkPosition, Quaternion.identity);
+            if (!isInTestMode)
+            {
+                Destroy(explosionEffect, explosionDuration);
+            }
+            else
+            {
+                DestroyImmediate(explosionEffect);
             }
         }
     }
