@@ -178,6 +178,8 @@ static class BuildCommand
 
         SetScriptingBackendFromEnv(buildTarget);
 
+        LoadBakedData();
+
         var buildReport = BuildPipeline.BuildPlayer(GetEnabledScenes(), fixedBuildPath, buildTarget, buildOptions);
 
         if (buildReport.summary.result != UnityEditor.Build.Reporting.BuildResult.Succeeded)
@@ -258,5 +260,13 @@ static class BuildCommand
 #endif
         PlayerSettings.Android.keystorePass = keystorePass;
         PlayerSettings.Android.keyaliasPass = keystoreAliasPass;
+    }
+
+    private static void LoadBakedData()
+    {
+        // Ensure the lightmaps and reflection probes are loaded properly
+        Lightmapping.giWorkflowMode = Lightmapping.GIWorkflowMode.OnDemand;
+        Lightmapping.BakeAsync();
+        Console.WriteLine(":: Lightmapping data has been baked.");
     }
 }
