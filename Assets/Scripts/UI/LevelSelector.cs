@@ -24,20 +24,18 @@ public class LevelSelector : MonoBehaviour
 
     public void ChangeLevel(int change)
     {
-        // Új index számítása
         int newLevelIndex = currentLevelIndex + change;
 
-        // Az érvényes index ellenõrzése
         if (newLevelIndex >= 0 && newLevelIndex < levelBackgrounds.Length)
         {
-            currentLevelIndex = newLevelIndex;  // Ha érvényes, módosítsa az indexet
-            UpdateLevelDisplay();  // Frissíti a kijelzõt
+            currentLevelIndex = newLevelIndex;
+            UpdateLevelDisplay();
 
-            Debug.Log($"Current level selected: {levelNames[currentLevelIndex]}");  // Debug log
+            Debug.Log($"Current level selected: {levelNames[currentLevelIndex]}");
         }
         else
         {
-            Debug.LogWarning("Invalid level index, skipping update.");  // Figyelmeztetõ üzenet
+            Debug.LogWarning("Invalid level index, skipping update.");
         }
     }
 
@@ -60,11 +58,17 @@ public class LevelSelector : MonoBehaviour
 
     private void UpdateLevelDisplay()
     {
-        titleText.text = levelNames[currentLevelIndex];
-        backgroundImage.sprite = levelBackgrounds[currentLevelIndex];
+        if (currentLevelIndex >= 0 && currentLevelIndex < levelNames.Length && currentLevelIndex < levelBackgrounds.Length)
+        {
+            titleText.text = levelNames[currentLevelIndex];
+            backgroundImage.sprite = levelBackgrounds[currentLevelIndex];
 
-        // Debug.Log hívás minden alkalommal, amikor a kijelzõ frissül
-        Debug.Log($"Display updated to level: {levelNames[currentLevelIndex]}");
+            Debug.Log($"Display updated to level: {levelNames[currentLevelIndex]}");
+        }
+        else
+        {
+            Debug.Log("Cannot update level display, invalid level index.");
+        }
     }
 
     public void OnRightButtonPressed()

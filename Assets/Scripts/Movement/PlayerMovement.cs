@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using GameLogic;
 
-
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator animator;  // Animator reference
     [SerializeField] private GameObject bombPrefab;  // Prefab for the bombs
     [SerializeField] public GameObject explosionPrefab;  // Prefab for explosions
-   
 
     private CharacterController controller;  // CharacterController reference
     private Vector3 playerVelocity = Vector3.zero;  // Player's velocity
@@ -20,21 +18,26 @@ public class PlayerMovement : MonoBehaviour
     private bool groundedPlayer;  // Check if player is grounded
 
     public bool hasSpeedBoost = false;
-    public float bombCooldown = 1.5f;
+    public float bombCooldown = 2.0f;  // Default bomb cooldown (2 seconds)
     public int maxBombs = 1;  // Maximum bombs that can be placed
     public int availableBombs;  // Current available bombs
-    private float nextBombTime = 0f;  // Next allowed bomb time
+    private List<float> bombCooldownTimers = new List<float>();  // List of cooldown timers for bombs
     private List<GameObject> bombs = new List<GameObject>();  // List of placed bombs
     public bool detonator = false;  // Detonator mode
     public float radius_plus = 0f;
     public float destroyTime = 3f;
     private static readonly int IdleState = Animator.StringToHash("Base Layer.idle");
     private static readonly int MoveState = Animator.StringToHash("Base Layer.move");
-        
+
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();  // Initialize CharacterController
         availableBombs = maxBombs;  // Initialize available bombs
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        movementInput = context.ReadValue<Vector2>();  // Read 2D input
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -45,14 +48,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        movementInput = context.ReadValue<Vector2>();  // Read 2D input
-    }
-
     public void OnBombPlace(InputAction.CallbackContext context)
     {
-        if (context.performed && Time.time >= nextBombTime && availableBombs > 0)
+        if (context.performed && availableBombs > 0 && CanPlaceBomb())
         {
             if (detonator)
             {
@@ -63,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
                 PlaceBomb();
             }
             availableBombs--;  // Decrease available bombs
-            nextBombTime = Time.time + bombCooldown;  // Set cooldown
         }
     }
 
@@ -75,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void PlaceBomb()
+    private void PlaceBomb()
     {
         if (bombPrefab != null)
         {
@@ -91,22 +88,30 @@ public class PlayerMovement : MonoBehaviour
             bombExplosion.bomb = bomb;
             bombExplosion.explosionPrefab = explosionPrefab;
             bombExplosion.BeginExplode();
-            bombExplosion.playerWhoPlacedTheBomb = gameObject;  
+            bombExplosion.playerWhoPlacedTheBomb = gameObject;
             Destroy(bomb, destroyTime);
             Physics.IgnoreCollision(bomb.GetComponent<Collider>(), gameObject.GetComponent<Collider>());
+
+            bombs.Add(bomb);  // Add to list of active bombs
+            bombCooldownTimers.Add(Time.time + bombCooldown);  // Add cooldown timer
         }
     }
 
-    public void PlaceBombDetonator()
+    private void PlaceBombDetonator()
     {
         if (bombPrefab != null)
         {
-            GameObject bomb = Instantiate(bombPrefab, transform.position, Quaternion.identity);
+            Vector3 position = new Vector3(
+                Mathf.RoundToInt(transform.position.x),
+                transform.position.y,
+                Mathf.RoundToInt(transform.position.z)
+            );
+            GameObject bomb = Instantiate(bombPrefab, position, Quaternion.identity);
             bombs.Add(bomb);  // Add to list for detonation
         }
     }
 
-    public void ExplodeDetonator()
+    private void ExplodeDetonator()
     {
         foreach (GameObject bomb in bombs)
         {
@@ -117,24 +122,25 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         bombs.Clear();  // Clear the list after detonation
+        availableBombs = maxBombs;  // Reset available bombs
+        bombCooldownTimers.Clear();  // Clear cooldown timers
     }
 
     public void IncreaseExplosionRadius(float increaseAmount)
     {
         radius_plus += increaseAmount;
         destroyTime += 0.2f;
+        Debug.Log("Explosion radius increased to: " + radius_plus);
     }
 
     public void IncreaseBombCount()
     {
-        if (maxBombs < 3)
-        {
             maxBombs++;
-            bombCooldown -= 0.25f;
-        }
+            availableBombs = maxBombs;  // Update available bombs
+            Debug.Log("Max bombs increased to: " + maxBombs);
     }
 
-    public void Update()
+    private void Update()
     {
         groundedPlayer = controller.isGrounded;  // Check if grounded
         if (groundedPlayer && playerVelocity.y < 0)
@@ -173,11 +179,22 @@ public class PlayerMovement : MonoBehaviour
         playerVelocity.y += gravity * Time.deltaTime;  // Apply gravity
         controller.Move(playerVelocity * Time.deltaTime);  // Move with gravity
 
-        // Bomb cooldown handling
-        if (Time.time >= nextBombTime && availableBombs + bombs.Count < maxBombs)
+        // Remove null bombs from the list
+        bombs.RemoveAll(bomb => bomb == null);
+
+        // Remove expired cooldowns and update available bombs
+        for (int i = bombCooldownTimers.Count - 1; i >= 0; i--)
         {
-            availableBombs++;  // Increase available bombs
-            nextBombTime = Time.time + bombCooldown;  // Set cooldown
+            if (Time.time >= bombCooldownTimers[i])
+            {
+                bombCooldownTimers.RemoveAt(i);
+                availableBombs++;  // Increment available bombs when cooldown expires
+            }
         }
+    }
+
+    private bool CanPlaceBomb()
+    {
+        return bombCooldownTimers.Count < maxBombs;
     }
 }

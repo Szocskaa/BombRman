@@ -28,6 +28,12 @@ public class KeyConfig : MonoBehaviour
 
     void Start()
     {
+        if (wasdToggle == null || arrowKeysToggle == null || controllerStickToggle == null || controllerDPadToggle == null)
+        {
+            Debug.Log("One or more Toggle references are not set in the Inspector");
+            return;
+        }
+
         wasdToggle.onValueChanged.AddListener(delegate { UpdateInputScheme("KeyboardWASD", wasdToggle.isOn); });
         arrowKeysToggle.onValueChanged.AddListener(delegate { UpdateInputScheme("KeyboardArrows", arrowKeysToggle.isOn); });
         controllerStickToggle.onValueChanged.AddListener(delegate { UpdateInputScheme("ControllerStick", controllerStickToggle.isOn); });
@@ -39,8 +45,16 @@ public class KeyConfig : MonoBehaviour
         if (isOn)
         {
             currentControlScheme = scheme;
-            InputSettings.Instance.SetInputScheme(scheme);
-            Debug.Log($"Input scheme updated to: {scheme}");
+
+            if (InputSettings.Instance != null)
+            {
+                InputSettings.Instance.SetInputScheme(scheme);
+                Debug.Log($"Input scheme updated to: {scheme}");
+            }
+            else
+            {
+                Debug.Log("InputSettings.Instance is null. Ensure it is properly initialized.");
+            }
         }
     }
 

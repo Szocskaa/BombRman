@@ -15,7 +15,7 @@ public class GhostSpawner : MonoBehaviour
 
         if (playerConfigManager == null)
         {
-            Debug.LogError("PlayerConfigurationManager instance not found.");
+            Debug.Log("PlayerConfigurationManager instance not found.");
             return;
         }
 
@@ -23,13 +23,13 @@ public class GhostSpawner : MonoBehaviour
 
         if (playerConfigs == null || playerConfigs.Count == 0)
         {
-            Debug.LogError("No player configurations found.");
+            Debug.Log("No player configurations found.");
             return;
         }
 
         if (spawnPositions == null || spawnPositions.Count < playerConfigs.Count)
         {
-            Debug.LogError("Not enough spawn positions for players.");
+            Debug.Log("Not enough spawn positions for players.");
             return;
         }
 
@@ -45,7 +45,7 @@ public class GhostSpawner : MonoBehaviour
             var skinnedMeshRenderer = ghost.GetComponent<SkinnedMeshRenderer>();
             if (skinnedMeshRenderer == null)
             {
-                Debug.LogError($"Ghost {i} does not have a Skinned Mesh Renderer.");  // Logolj hiba�zenetet
+                Debug.Log($"Ghost {i} does not have a Skinned Mesh Renderer.");  // Logolj hiba�zenetet
             }
             else
             {
@@ -56,7 +56,7 @@ public class GhostSpawner : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError($"Ghost {i} does not have a valid playerMaterial.");  // Logolj hiba�zenetet
+                    Debug.Log($"Ghost {i} does not have a valid playerMaterial.");  // Logolj hiba�zenetet
                 }
             }
 

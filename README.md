@@ -1,91 +1,75 @@
-# HáromIgazVándor
+# BombRman - HáromIgazVándor
+
+BombRman egy izgalmas és szórakoztató játék, amely a klasszikus Bomberman játék ihlette 3D-s implementáció. Robbantsd fel az utadat, győzd le az ellenségeidet és gyűjtsd össze a power-upokat, hogy a legerősebb játékossá válj!
+
+## Telepítés
+
+Kövesd az alábbi lépéseket a játék telepítéséhez és futtatásához:
+
+1. Töltsd le a BombRman legújabb verzióját a [GitHub](https://github.com/your-repository) oldaláról.
+2. Csomagold ki a letöltött fájlt egy tetszőleges könyvtárba.
+3. Nyisd meg a projektet Unity-ben.
+4. Kattints a `File > Build Settings` menüpontra, válaszd ki a cél platformot és kattints a `Build` gombra.
+5. Futtasd a létrehozott futtatható fájlt, hogy elindítsd a játékot.
 
 
+### Alapvető irányítás
 
-## Getting started
+- **Mozgás**: Használd a WASD/nyilakat (Billentyűzet) vagy a Bal Stick/Dpad (Kontroller) a karakter mozgatásához.
+- **Bomba elhelyezése**: Nyomd meg a `Shift` billentyűt, vagy a kontroller `X` (PS) / `A` (Xbox) gombját egy bomba elhelyezéséhez.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+#### Főmenü
 
-## Add your files
+A játék indításakor a főmenü fogad, ahol választhatsz a különböző játékmódok és beállítások között.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+![Főmenü](Screenshots/mainmenu.png)
 
-```
-cd existing_repo
-git remote add origin https://szofttech.inf.elte.hu/szofttech-c-2024/group-12/haromigazvandor.git
-git branch -M master
-git push -uf origin master
-```
+#### Játék mód kiválasztása
 
-## Integrate with your tools
+A főmenüből elérheted a játékmód kiválasztó menüt, ahol egyjátékos vagy többjátékos módok között választhatsz.
 
-- [ ] [Set up project integrations](https://szofttech.inf.elte.hu/szofttech-c-2024/group-12/haromigazvandor/-/settings/integrations)
+![Játék mód kiválasztása](Screenshots/menuschooseplaymode.png)
 
-## Collaborate with your team
+#### Szint választás
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+A játék kezdetekor kiválaszthatod a kívánt pályát, ahol a küzdelem zajlik majd. Több szint közül választhatsz, mindegyik különböző kihívásokkal és elrendezéssel rendelkezik.
 
-## Test and Deploy
+![Szint választás](Screenshots/levelselect3.png)
 
-Use the built-in continuous integration in GitLab.
+### Játékmenet
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+#### Játék közbeni irányítás
 
-***
+A játékmenet során a karakteredet felülnézetből irányíthatod, bombákat helyezhetsz el és gyűjtheted a power-upokat. 
 
-# Editing this README
+![Játékmenet](Screenshots/singleplayer.png)
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+#### Power-upok
 
-## Suggestions for a good README
+A játéktérben különböző power-upokat találhatsz, amelyek növelik a képességeidet:
+- **Több bomba (Fekete)**: Növeli az egyszerre lerakható bombák számát.
+- **Robbanás növelése (Piros)**: Növeli a bombák robbanásának hatókörét.
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+#### Robbanás és győzelem
 
-## Name
-Choose a self-explaining name for your project.
+A bombák felrobbantják az akadályokat és az ellenségeket. A cél, hogy túlélj és legyőzd az összes ellenfelet.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+### Beállítások
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+A beállítások menüben módosíthatod a játék különböző paramétereit, beleértve a zene és a hanghatások hangerejét, valamint a grafikai beállításokat.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+![Beállítások](Screenshots/settings.png)
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+### Győzelem és eredmények
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+A játék végén megjelenik az eredmény, ahol láthatod, ki nyert. 
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+![Győzelem](Screenshots/player2win.png)
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+## Közreműködők
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+- **Tóth Levente** - [GitHub profil](https://szofttech.inf.elte.hu/ohh5z8)
+- **Juhász Áron** - [GitHub profil](https://szofttech.inf.elte.hu/abko47)
+- **Török Zoltán** - [GitHub profil](https://szofttech.inf.elte.hu/owwcew)
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Reméljük, hogy élvezni fogod a BombRman játékot! Ha bármilyen kérdésed vagy problémád van, kérjük, jelezd a [GitHub Issues](https://szofttech.inf.elte.hu/szofttech-c-2024/group-12/haromigazvandor/-/issues) oldalon.
