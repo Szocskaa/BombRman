@@ -3,14 +3,13 @@
 BombRman egy izgalmas és szórakoztató játék, amely a klasszikus Bomberman játék ihlette 3D-s implementáció. Robbantsd fel az utadat, győzd le az ellenségeidet és gyűjtsd össze a power-upokat, hogy a legerősebb játékossá válj!
 
 ## Telepítés
+Kövesd az alábbi lépéseket a játék telepítéséhez és buildeléshez:
 
-Kövesd az alábbi lépéseket a játék telepítéséhez és futtatásához:
-
-1. Töltsd le a BombRman legújabb verzióját a [GitHub](https://github.com/your-repository) oldaláról.
+1. Töltsd le a BombRman legújabb verzióját oldaláról.
 2. Csomagold ki a letöltött fájlt egy tetszőleges könyvtárba.
 3. Nyisd meg a projektet Unity-ben.
 4. Kattints a `File > Build Settings` menüpontra, válaszd ki a cél platformot és kattints a `Build` gombra.
-5. Futtasd a létrehozott futtatható fájlt, hogy elindítsd a játékot.
+5. Futtasd a létrehozott futtatható fájlt (`BombRman.exe`), hogy elindítsd a játékot.
 
 
 ### Alapvető irányítás
