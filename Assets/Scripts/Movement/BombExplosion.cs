@@ -98,7 +98,6 @@ namespace GameLogic
 
                 if (Physics.Raycast(explosionPosition, dir, out RaycastHit hit, distance))
                 {
-                    Debug.Log(hit.collider.name);
                     if (hit.collider.CompareTag("Undestructible"))
                     {
                         yield break;

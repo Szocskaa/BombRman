@@ -130,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
         if (maxBombs < 3)
         {
             maxBombs++;
-            bombCooldown -= 0.5f;
+            bombCooldown -= 0.25f;
         }
     }
 
