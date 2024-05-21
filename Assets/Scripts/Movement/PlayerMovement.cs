@@ -36,6 +36,14 @@ public class PlayerMovement : MonoBehaviour
         availableBombs = maxBombs;  // Initialize available bombs
     }
 
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void OnMove(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();  // Read 2D input
@@ -114,7 +122,6 @@ public class PlayerMovement : MonoBehaviour
     {
         radius_plus += increaseAmount;
         destroyTime += 0.2f;
-        Debug.Log("Explosion radius increased to: " + radius_plus);
     }
 
     public void IncreaseBombCount()
@@ -123,7 +130,6 @@ public class PlayerMovement : MonoBehaviour
         {
             maxBombs++;
             bombCooldown -= 0.5f;
-            Debug.Log("Max bombs increased to: " + maxBombs);
         }
     }
 

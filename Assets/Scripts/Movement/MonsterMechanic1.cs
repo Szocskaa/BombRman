@@ -24,7 +24,6 @@ public class Monster : MonoBehaviour
             if (!agent.pathPending && agent.remainingDistance < 0.5f)
             {
                 SetNewDestination();
-                Debug.Log(agent.destination);
             }
 
             // Check if a path to the goal is available

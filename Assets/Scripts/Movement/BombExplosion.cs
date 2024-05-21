@@ -24,7 +24,7 @@ namespace GameLogic
         Vector3.left
         };
 
-        void OnTriggerExit(Collider other)
+        public void OnTriggerExit(Collider other)
         {
             if (other.gameObject == playerWhoPlacedTheBomb)
             {
@@ -51,7 +51,7 @@ namespace GameLogic
                 DestroyImmediate(bigExplosion);
             }
 
-            
+
             float nullRadius = 0.2f;
 
             Collider[] initialHits = Physics.OverlapSphere(explosionPosition, nullRadius);
@@ -123,7 +123,7 @@ namespace GameLogic
                 {
                     JustExplode(checkPosition);
                 }
-                
+
             }
         }
 
